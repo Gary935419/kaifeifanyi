@@ -1,0 +1,175 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>饿了么翻倍红包单页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/theme-chalk/index.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fanli-guide.oss-cn-shenzhen.aliyuncs.com/eleme/code.css">
+	<link rel="stylesheet" href="https://fanli-guide.oss-cn-shenzhen.aliyuncs.com/eleme/index.css">
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.1/index.min.js"></script>
+	<script src="https://fanli-guide.oss-cn-shenzhen.aliyuncs.com/eleme/swiper.min.js"></script>
+	<script src="https://fanli-guide.oss-cn-shenzhen.aliyuncs.com/eleme/swiper.animate.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<style>
+		body {
+			margin: 0px;
+		}
+
+		[v-cloak] {
+			display: none;
+		}
+
+		.Base--Page--2Ovwvks {
+			position: relative;
+			width: 100%;
+			min-height: 150vh;
+			background: #1aa9fc url(https://fanli-guide.oss-cn-shenzhen.aliyuncs.com/img/eleme-bg.png) no-repeat top;
+			background-size: 100vw auto
+		}
+
+		.Base--Box--Zdsst0a {
+			position: absolute;
+			left: 0;
+			right: 0;
+			padding: 3.2vw;
+			margin: 0 4.26667vw;
+			top: 134.66667vw
+		}
+		#poplay {
+			width:100%;
+			height:200%;
+			background-color:#000;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:100;
+			opacity:0.6;
+			/*兼容IE8及以下版本浏览器*/
+			filter: alpha(opacity=30);
+		}
+	</style>
+</head>
+
+<body>
+<div id="app"
+	 style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: auto;">
+	<div class="Base--Page--2Ovwvks">
+		<div class="Base--Info--2cTI1a8">
+			<div class="swiper-container swiper-container-vertical" style="height: 40vw;">
+				<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, -900px, 0px);">
+					<div data-swiper-slide-index="6"
+						 class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+						 style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">15</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻2.7倍</div>
+					</div>
+					<div data-swiper-slide-index="0" class="swiper-slide" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">19</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻3.0倍</div>
+					</div>
+					<div data-swiper-slide-index="1" class="swiper-slide" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">13</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻2.6倍</div>
+					</div>
+					<div data-swiper-slide-index="2" class="swiper-slide" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">10</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻1.5倍</div>
+					</div>
+					<div data-swiper-slide-index="3" class="swiper-slide" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">12</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻2.7倍</div>
+					</div>
+					<div data-swiper-slide-index="4" class="swiper-slide swiper-slide-prev" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">20</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻2.1倍</div>
+					</div>
+					<div data-swiper-slide-index="5" class="swiper-slide swiper-slide-active" style="height: 150px;">
+						<div><span class="Base--MoneyUnit--3A6MmXm">￥</span><b class="Base--MoneyNum--1tJtZT_">20</b>
+						</div>
+						<div class="Base--Radio--2MR7WtL">已翻3倍</div>
+					</div>
+				</div>
+				<span aria-live="assertive" aria-atomic="true" class="swiper-notification"></span><span
+					class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+			</div>
+		</div>
+		<div class="Base--Box--Zdsst0a">
+			<div id="eleme-jump" onclick="copyText('shop1')" class="Base--Btn--2Rjsls0 animate__pulse"
+				 style="text-align: center; line-height: 10vw; text-decoration: none;">点击领取红包
+			</div>
+		</div>
+		<div id="shop1" style="font-size: 0px;"></div>
+	</div>
+</div>
+<div class="el-message-box__wrapper" id="elm" style="z-index: 2001;display: none">
+	<div class="el-message-box" style="width: 90%;">
+		<div class="el-message-box__header">
+			<div class="el-message-box__title"><span>提示</span></div>
+		</div>
+		<div class="el-message-box__content">
+			<div class="el-message-box__container">
+				<div class="el-message-box__status el-icon-success"></div>
+				<div class="el-message-box__message"><p>口令复制成功,请打开[饿了么APP]领取</p></div>
+			</div>
+			<div class="el-message-box__input" style="display: none;">
+				<div class="el-input"><input type="text" autocomplete="off" placeholder=""
+											 class="el-input__inner"></div>
+				<div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+			</div>
+		</div>
+		<div class="el-message-box__btns">
+			<button type="button" id="cal" class="el-button el-button--default el-button--small el-button--primary ">
+				<span>好的</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<div id="poplay" style="display: none;">
+
+</div>
+<script type="text/javascript">
+	//复制方法
+	function copyText(text) {
+		var textarea = document.createElement("textarea");
+		var currentFocus = document.activeElement;
+		document.body.appendChild(textarea);
+		textarea.value = text;
+		textarea.focus();
+		if (textarea.setSelectionRange)
+			textarea.setSelectionRange(0, textarea.value.length);
+		else
+			textarea.select();
+		try {
+			var flag = document.execCommand("copy");
+		} catch (eo) {
+			var flag = false;
+		}
+		document.body.removeChild(textarea);
+		currentFocus.focus();
+		return flag;
+	}
+
+	document.getElementById('eleme-jump').onclick = function () {
+		var str = '0复zんι文本 1:/＄XB8iII0＄~.👉饿了么App👈【快來領外賣紅包，最高20元，人人都有哦~】';
+		copyText(str);
+		$("#elm").show();
+		$("#poplay").show();
+	};
+	document.getElementById('cal').onclick = function () {
+		$("#elm").hide();
+		$("#poplay").hide();
+	};
+</script>
+</body>
+</html>
+
