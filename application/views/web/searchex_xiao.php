@@ -112,6 +112,7 @@
 				<div class="spsearchex_yuan_sp">
 					<div class="spsearchex_yuan_sp_block">
 						<img src="<?php echo $data['dianlogo'] ?>" alt="" />
+						<span style="float: right;font-size: 16px;color: red;">翻译由友道翻译提供。</span>
 						<span class="searchex_yuan_top_title"><?php echo $data['mingcheng'] ?></span>
 						<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 						<div class="spsearchex_yuan_sp_area">
@@ -191,6 +192,7 @@
 					<div class="searchex_yuan_top">
 						<img src="<?php echo $data['dianlogo'] ?>" alt="" />
 						<div class="searchex_yuan_top_area">
+							<span style="float: right;font-size: 16px;color: red;">翻译由友道翻译提供。</span>
 							<span class="searchex_yuan_top_title"><?php echo $data['mingcheng'] ?></span>
 							<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 							<div class="searchex_yuan_top_box">
