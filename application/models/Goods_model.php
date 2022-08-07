@@ -161,6 +161,18 @@ class Goods_model extends CI_Model
         $sql = "SELECT * FROM `nongchangzhu` where id=$id ";
         return $this->db->query($sql)->row_array();
     }
+	public function getgoodsByIdfid($id)
+	{
+		$id = $this->db->escape($id);
+		$sql = "SELECT * FROM `nongchangzhu` where fid=$id ";
+		return $this->db->query($sql)->row_array();
+	}
+	public function getgoodsByIdfid1($id)
+	{
+		$id = $this->db->escape($id);
+		$sql = "SELECT * FROM `kafeidian` where fid=$id ";
+		return $this->db->query($sql)->row_array();
+	}
     //商品byname id
     public function getgoodsById2($gname, $gid)
     {
@@ -170,9 +182,11 @@ class Goods_model extends CI_Model
         return $this->db->query($sql)->row_array();
     }
     //商品save_edit
-    public function goods_save_edit($id,$touxiang,$xingming,$xingbie,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$kafeiming,$zhuangtai,$caijididian,$xiangxidizhi,$zhongzhimianji,$chulifangshi,$chulitedian,$shouhuoshijian,$niancanliang,$nonglogo,$fazhanshi,$zhuyaochanpin,$jianjie,$updatetime)
+    public function goods_save_edit($id,$hongguoshuliang,$haibagaodu,$touxiang,$xingming,$xingbie,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$kafeiming,$zhuangtai,$caijididian,$xiangxidizhi,$zhongzhimianji,$chulifangshi,$chulitedian,$shouhuoshijian,$niancanliang,$nonglogo,$fazhanshi,$zhuyaochanpin,$jianjie,$updatetime)
     {
 		$id = $this->db->escape($id);
+		$hongguoshuliang = $this->db->escape($hongguoshuliang);
+		$haibagaodu = $this->db->escape($haibagaodu);
 		$updatetime = $this->db->escape($updatetime);
 		$touxiang = $this->db->escape($touxiang);
 		$xingming = $this->db->escape($xingming);
@@ -195,7 +209,7 @@ class Goods_model extends CI_Model
 		$fazhanshi = $this->db->escape($fazhanshi);
 		$zhuyaochanpin = $this->db->escape($zhuyaochanpin);
 		$jianjie = $this->db->escape($jianjie);
-        $sql = "UPDATE `nongchangzhu` SET updatetime=$updatetime,touxiang=$touxiang,xingming=$xingming,xingbie=$xingbie,dianhua=$dianhua,youxiang=$youxiang,
+        $sql = "UPDATE `nongchangzhu` SET hongguoshuliang=$hongguoshuliang,haibagaodu=$haibagaodu,updatetime=$updatetime,touxiang=$touxiang,xingming=$xingming,xingbie=$xingbie,dianhua=$dianhua,youxiang=$youxiang,
                           zhou=$zhou,guojia=$guojia,chengshi=$chengshi,kafeiming=$kafeiming,zhuangtai=$zhuangtai,
                           caijididian=$caijididian,xiangxidizhi=$xiangxidizhi,zhongzhimianji=$zhongzhimianji,chulifangshi=$chulifangshi,
                           chulitedian=$chulitedian,shouhuoshijian=$shouhuoshijian,niancanliang=$niancanliang,nonglogo=$nonglogo,

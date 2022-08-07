@@ -109,10 +109,16 @@
 		<div class="center">
 			<div class="inner">
 				<!--sp-->
+
 				<div class="spsearchex_yuan_sp">
+					<?php if (empty($ltype)){ ?>
+						<span style="font-size: 16px;color: #af8750;">※以下内容翻译由有道翻译提供。</span>
+					<?php }else{ ?>
+						<span style="font-size: 16px;color: #af8750;">※The translation of the following is provided by Youdao Translations.</span>
+					<?php } ?>
 					<div class="spsearchex_yuan_sp_block">
 						<img src="<?php echo $data['dianlogo'] ?>" alt="" />
-						<span style="float: right;font-size: 16px;color: red;">翻译由友道翻译提供。</span>
+
 						<span class="searchex_yuan_top_title"><?php echo $data['mingcheng'] ?></span>
 						<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 						<div class="spsearchex_yuan_sp_area">
@@ -187,12 +193,18 @@
 						</div>
 					</div>
 				</div>
+
 				<!--pc-->
 				<div class="searchex_yuan_pc">
+					<?php if (empty($ltype)){ ?>
+						<span style="font-size: 16px;color: #af8750;margin-top: 20px;">※以下内容翻译由有道翻译提供。</span>
+					<?php }else{ ?>
+						<span style="font-size: 16px;color: #af8750;margin-top: 20px;">※The translation of the following is provided by Youdao Translations.</span>
+					<?php } ?>
 					<div class="searchex_yuan_top">
 						<img src="<?php echo $data['dianlogo'] ?>" alt="" />
 						<div class="searchex_yuan_top_area">
-							<span style="float: right;font-size: 16px;color: red;">翻译由友道翻译提供。</span>
+
 							<span class="searchex_yuan_top_title"><?php echo $data['mingcheng'] ?></span>
 							<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 							<div class="searchex_yuan_top_box">

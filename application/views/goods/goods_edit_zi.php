@@ -19,19 +19,42 @@
 <div class="layui-fluid" style="padding-top: 66px;">
     <div class="layui-row">
         <form method="post" class="layui-form" action="" name="basic_validate" id="tab">
-			<div class="layui-form-item">
-				<label for="L_pass" class="layui-form-label" style="width: 30%;">
-					<span class="x-red">*</span>状态
-				</label>
-				<div class="layui-input-inline" style="width: 500px;">
-					<input type="radio" name="zhuangtai" lay-skin="primary" title="显示"
-						   value="1" <?php echo $zhuangtai == 1 ? 'checked' : '' ?>>
-					<input type="radio" name="zhuangtai" lay-skin="primary" title="不显示"
-						   value="2" <?php echo $zhuangtai == 2 ? 'checked' : '' ?>>
-					<input type="radio" name="zhuangtai" lay-skin="primary" title="申请中"
-						   value="0" <?php echo $zhuangtai == 0 ? 'checked' : '' ?>>
+			<?php if (!empty($fid)){ ?>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 30%;">
+					</label>
+					<div class="layui-input-inline" style="width: 300px;">
+						<span style="color: red;font-size: 16px;font-weight: bold;">温馨提示：</span><br><span class="x-red">※以下内容翻译由有道翻译提供。</span>
+					</div>
 				</div>
-			</div>
+			<?php } ?>
+			<?php if (empty($fid)){ ?>
+				<div class="layui-form-item">
+					<label for="L_pass" class="layui-form-label" style="width: 30%;">
+						<span class="x-red">*</span>状态
+					</label>
+					<div class="layui-input-inline" style="width: 500px;">
+						<input type="radio" name="zhuangtai" lay-skin="primary" title="显示"
+							   value="1" <?php echo $zhuangtai == 1 ? 'checked' : '' ?>>
+						<input type="radio" name="zhuangtai" lay-skin="primary" title="不显示"
+							   value="2" <?php echo $zhuangtai == 2 ? 'checked' : '' ?>>
+						<input type="radio" name="zhuangtai" lay-skin="primary" title="申请中"
+							   value="0" <?php echo $zhuangtai == 0 ? 'checked' : '' ?>>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label for="L_pass" class="layui-form-label" style="width: 30%;">
+						<span class="x-red">*</span>原语言内容是否同步翻译内容？
+					</label>
+					<div class="layui-input-inline" style="width: 500px;">
+						<input type="radio" name="goflg" lay-skin="primary" title="不需要"
+							   value="0" checked>
+						<input type="radio" name="goflg" lay-skin="primary" title="需要"
+							   value="1">
+					</div>
+				</div>
+			<?php } ?>
+
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
 					<span class="x-red">*</span>头像
@@ -192,6 +215,15 @@
 			</div>
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
+					<span class="x-red">*</span>海拔高度
+				</label>
+				<div class="layui-input-inline" style="width: 300px;">
+					<input type="text" id="haibagaodu" name="haibagaodu" lay-verify="haibagaodu"
+						   autocomplete="off" value="<?php echo $haibagaodu ?>" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label for="L_pass" class="layui-form-label" style="width: 30%;">
 					<span class="x-red">*</span>年产量
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
@@ -210,7 +242,7 @@
 
             <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label" style="width: 30%;">
-                    <span class="x-red">*</span>简介
+                    <span class="x-red">*</span>简介(建议700文字以内)
                 </label>
                 <div class="layui-input-inline" style="width: 610px;">
                     <textarea id="jianjie" name="jianjie"  lay-verify="jianjie" class="layui-textarea"><?php echo $jianjie ?></textarea>
@@ -218,7 +250,7 @@
             </div>
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
-					<span class="x-red">*</span>发展史
+					<span class="x-red">*</span>发展史(建议700文字以内)
 				</label>
 				<div class="layui-input-inline" style="width: 610px;">
 					<textarea id="fazhanshi" name="fazhanshi"  lay-verify="fazhanshi" class="layui-textarea"><?php echo $fazhanshi ?></textarea>
@@ -226,21 +258,13 @@
 			</div>
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
-					<span class="x-red">*</span>主要产品
+					<span class="x-red">*</span>主要产品(建议700文字以内)
 				</label>
 				<div class="layui-input-inline" style="width: 610px;">
 					<textarea id="zhuyaochanpin" name="zhuyaochanpin"  lay-verify="zhuyaochanpin" class="layui-textarea"><?php echo $zhuyaochanpin ?></textarea>
 				</div>
 			</div>
-			<?php if (!empty($fid)){ ?>
-				<div class="layui-form-item">
-					<label class="layui-form-label" style="width: 30%;">
-					</label>
-					<div class="layui-input-inline" style="width: 300px;">
-						<span style="color: red;font-size: 16px;font-weight: bold;">温馨提示：</span><br><span class="x-red">1、翻译由友道翻译提供。<br>2、简介、发展史、主要产品直接输入中文即可。<br>确认提交后系统会自动翻译成英文并更新原数据的简介、发展史、主要产品信息。</span>
-					</div>
-				</div>
-			<?php } ?>
+
             <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
             <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label" style="width: 30%;">
@@ -375,32 +399,6 @@ layui.use(['laydate', 'form'],
 			var editIndex3 = layedit.build('jianjie', {
 				height: 300,
 			});
-            //自定义验证规则
-            form.verify({
-                // gname: function (value) {
-                //     if ($('#gname').val() == "") {
-                //         return '请输入资讯名称。';
-                //     }
-                // },
-				//
-                // gsort: function (value) {
-                //     if ($('#gsort').val() == "") {
-                //         return '请输入资讯排序。';
-                //     }
-                // },
-                // gimg: function (value) {
-                //     if ($('#gimg').val() == "") {
-                //         return '请上传资讯列表图。';
-                //     }
-                // },
-                // gcontent: function(value) {
-                //     // 将富文本编辑器的值同步到之前的textarea中
-                //     layedit.sync(editIndex1);
-                //     if ($('#gcontent').val() == "") {
-                //         return '请输入资讯简介。';
-                //     }
-                // },
-            });
 
             $("#tab").validate({
                 submitHandler: function (form) {

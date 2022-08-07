@@ -85,9 +85,24 @@
 											<?php }else{ ?>
 											<?php } ?>
 										</button>
+										<?php if ($once['zhuangtai']==1){ ?>
+											<button class="layui-btn layui-btn-normal"
+													onclick="goods_delete_state('<?= $once['id'] ?>',2)"><i class="layui-icon">&#xe642;</i>不显示
+											</button>
+										<?php }elseif ($once['zhuangtai']==2){ ?>
+											<button class="layui-btn layui-btn-normal"
+													onclick="goods_delete_state('<?= $once['id'] ?>',1)"><i class="layui-icon">&#xe642;</i>显示
+											</button>
+										<?php }else{ ?>
+											<button class="layui-btn layui-btn-normal"
+													onclick="goods_delete_state('<?= $once['id'] ?>',1)"><i class="layui-icon">&#xe642;</i>显示
+											</button>
+										<?php } ?>
                                         <button class="layui-btn layui-btn-danger"
                                                 onclick="goods_delete('<?= $once['id'] ?>')"><i class="layui-icon">&#xe640;</i>删除
                                         </button>
+
+
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -144,5 +159,45 @@
                 });
             });
     }
+
+	function goods_delete_state(id,zhuangtai) {
+		layer.confirm('您是否确认更改显示状态？', {
+					title: '温馨提示',
+					btn: ['确认', '取消']
+					// 按钮
+				},
+				function (index) {
+					$.ajax({
+						type: "post",
+						data: {"id": id,"zhuangtai": zhuangtai},
+						dataType: "json",
+						url: "<?= RUN . '/goods/goods_delete_state' ?>",
+						success: function (data) {
+							if (data.success) {
+								layer.alert(data.msg, {
+											title: '温馨提示',
+											icon: 6,
+											btn: ['确认']
+										},
+										function () {
+											window.location.reload();
+										}
+								);
+							} else {
+								layer.alert(data.msg, {
+											title: '温馨提示',
+											icon: 5,
+											btn: ['确认']
+										},
+										function () {
+											window.location.reload();
+										}
+								);
+							}
+
+						},
+					});
+				});
+	}
 </script>
 </html>

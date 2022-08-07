@@ -1273,6 +1273,7 @@ select::-ms-expand {
 .search_list_item_photo {
 	height: 264px;
 	width: 100%;
+	padding: 15px;
 }
 .search_list_item_photo img {
 	width: 100%;
