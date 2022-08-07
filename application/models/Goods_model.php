@@ -318,6 +318,22 @@ public function goods_save_edit_fanyi2($text8,$text9,$text10,$text11,$text12,$te
 		return $this->db->query($sql);
 	}
 
+	public function goods_new1($id,$zhuangtai)
+	{
+		$id = $this->db->escape($id);
+		$zhuangtai = $this->db->escape($zhuangtai);
+		$sql = "UPDATE `kafeidian` SET zhuangtai=$zhuangtai WHERE id = $id or fid = $id";
+		return $this->db->query($sql);
+	}
+
+	public function goods_new2($id,$zhuangtai)
+	{
+		$id = $this->db->escape($id);
+		$zhuangtai = $this->db->escape($zhuangtai);
+		$sql = "UPDATE `nongchangzhu` SET zhuangtai=$zhuangtai WHERE id = $id or fid = $id";
+		return $this->db->query($sql);
+	}
+
 	public function goods_save_edit1_new($id,$fazhanshi,$zhuyaochanpin,$jianjie,$updatetime)
 	{
 		$id = $this->db->escape($id);

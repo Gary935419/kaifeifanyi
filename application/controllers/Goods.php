@@ -476,8 +476,14 @@ public function goods_edit_fanyi2()
 			return;
 		}
 
+		if (!empty($goods_info['fid'])){
+			$goods_info1 = $this->goods->getgoodsById($goods_info['fid']);
+			$zhuangtai = $goods_info1['zhuangtai'];
+		}
+
 		if (empty($goods_info['fid'])){
 			$result = $this->goods->goods_save_edit($id,$touxiang,$xingming,$xingbie,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$kafeiming,$zhuangtai,$caijididian,$xiangxidizhi,$zhongzhimianji,$chulifangshi,$chulitedian,$shouhuoshijian,$niancanliang,$nonglogo,$fazhanshi,$zhuyaochanpin,$jianjie,time());
+			$this->goods->goods_new2($id,$zhuangtai);
 		}else{
 			$fazhanshi1 = "";
 			if (!empty($fazhanshi)){
@@ -659,11 +665,15 @@ public function goods_edit_fanyi2()
 			echo json_encode(array('error' => true, 'msg' => "数据错误"));
 			return;
 		}
+		if (!empty($goods_info['fid'])){
+			$goods_info1 = $this->goods->getgoodsById1($goods_info['fid']);
+			$zhuangtai = $goods_info1['zhuangtai'];
+		}
 
 		if (empty($goods_info['fid'])){
 			$result = $this->goods->goods_save_edit1($id,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$zhuangtai,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$fazhanshi,$zhuyaochanpin,$jianjie,time());
+			$this->goods->goods_new1($id,$zhuangtai);
 		}else{
-
 			$fazhanshi1 = "";
 			if (!empty($fazhanshi)){
 				$strqian = urlencode($fazhanshi);

@@ -60,24 +60,15 @@
 					</div>
 				</div>
 			</div>
-            <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label" style="width: 30%;">
-                    <span class="x-red">*</span>名称
-                </label>
-                <div class="layui-input-inline" style="width: 300px;">
-                    <input type="text" id="mingcheng" name="mingcheng" lay-verify="mingcheng"
-                           autocomplete="off" value="<?php echo $mingcheng ?>" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label" style="width: 30%;">
-                    <span class="x-red">*</span>电话
-                </label>
-                <div class="layui-input-inline" style="width: 300px;">
-                    <input type="number" id="dianhua" name="dianhua" lay-verify="dianhua"
-                           autocomplete="off" value="<?php echo $dianhua ?>" class="layui-input">
-                </div>
-            </div>
+			<div class="layui-form-item">
+				<label for="L_pass" class="layui-form-label" style="width: 30%;">
+					<span class="x-red">*</span>电话
+				</label>
+				<div class="layui-input-inline" style="width: 300px;">
+					<input type="number" id="dianhua" name="dianhua" lay-verify="dianhua"
+						   autocomplete="off" value="<?php echo $dianhua ?>" class="layui-input">
+				</div>
+			</div>
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
 					<span class="x-red">*</span>邮件
@@ -87,6 +78,17 @@
 						   autocomplete="off" value="<?php echo $youxiang ?>" class="layui-input">
 				</div>
 			</div>
+
+            <div class="layui-form-item">
+                <label for="L_pass" class="layui-form-label" style="width: 30%;">
+                    <span class="x-red">*</span>名称
+                </label>
+                <div class="layui-input-inline" style="width: 300px;">
+                    <input type="text" id="mingcheng" name="mingcheng" lay-verify="mingcheng"
+                           autocomplete="off" value="<?php echo $mingcheng ?>" class="layui-input">
+                </div>
+            </div>
+
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
 					<span class="x-red">*</span>大洲
