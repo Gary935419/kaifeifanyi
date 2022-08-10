@@ -109,16 +109,21 @@
 		</div>
 		<div class="center">
 			<div class="inner">
+				 <?php if (!empty($showflg)){ ?>
+					<?php if (empty($ltype)){ ?>
+						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※以下内容翻译由有道翻译提供。</span>
+					<?php }else{ ?>
+						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※The translation of the following is provided by Youdao Translations.</span>
+					<?php } ?>
+				<?php } ?>
+
 				<!--sp-->
 				<div class="spsearchex_yuan_sp">
+				   
 					<div class="spsearchex_yuan_sp_block">
 						<img src="<?php echo $data['nonglogo'] ?>" alt="" />
-						<?php if (empty($ltype)){ ?>
-							<span style="font-size: 16px;color: #af8750;">※以下内容翻译由有道翻译提供。</span>
-						<?php }else{ ?>
-							<span style="font-size: 16px;color: #af8750;">※The translation of the following is provided by Youdao Translations.</span>
-						<?php } ?>
-
+					
+                        
 						<span class="searchex_yuan_top_title"><?php echo $data['xingming'] ?></span>
 						<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 						<div class="spsearchex_yuan_sp_area">
@@ -198,12 +203,7 @@
 					<div class="searchex_yuan_top">
 						<img src="<?php echo $data['nonglogo'] ?>" alt="" />
 						<div class="searchex_yuan_top_area">
-							<?php if (empty($ltype)){ ?>
-								<span style="font-size: 16px;color: #af8750;margin-top: 20px;">※以下内容翻译由有道翻译提供。</span>
-							<?php }else{ ?>
-								<span style="font-size: 16px;color: #af8750;margin-top: 20px;">※The translation of the following is provided by Youdao Translations.</span>
-							<?php } ?>
-
+						
 							<span class="searchex_yuan_top_title"><?php echo $data['xingming'] ?></span>
 							<span class="searchex_yuan_top_text"><?php echo $data['jianjie'] ?></span>
 							<div class="searchex_yuan_top_box">

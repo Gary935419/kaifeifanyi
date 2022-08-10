@@ -97,14 +97,18 @@
 											<button class="layui-btn layui-btn-normal"
 													onclick="goods_delete_state('<?= $once['id'] ?>',1)"><i class="layui-icon">&#xe642;</i>显示
 											</button>
+											<button class="layui-btn layui-btn-danger"
+													onclick="goods_delete('<?= $once['id'] ?>')"><i class="layui-icon">&#xe640;</i>删除
+											</button>
 										<?php }else{ ?>
 											<button class="layui-btn layui-btn-normal"
 													onclick="goods_delete_state('<?= $once['id'] ?>',1)"><i class="layui-icon">&#xe642;</i>显示
 											</button>
+											<button class="layui-btn layui-btn-danger"
+													onclick="goods_delete('<?= $once['id'] ?>')"><i class="layui-icon">&#xe640;</i>删除
+											</button>
 										<?php } ?>
-										<button class="layui-btn layui-btn-danger"
-												onclick="goods_delete('<?= $once['id'] ?>')"><i class="layui-icon">&#xe640;</i>删除
-										</button>
+
 									</td>
 								</tr>
 							<?php endforeach; ?>

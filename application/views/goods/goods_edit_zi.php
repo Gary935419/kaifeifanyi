@@ -29,7 +29,7 @@
 				</div>
 			<?php } ?>
 			<?php if (empty($fid)){ ?>
-				<div class="layui-form-item">
+				<div class="layui-form-item" style="display:none;">
 					<label for="L_pass" class="layui-form-label" style="width: 30%;">
 						<span class="x-red">*</span>状态
 					</label>
@@ -42,19 +42,9 @@
 							   value="0" <?php echo $zhuangtai == 0 ? 'checked' : '' ?>>
 					</div>
 				</div>
-				<div class="layui-form-item">
-					<label for="L_pass" class="layui-form-label" style="width: 30%;">
-						<span class="x-red">*</span>原语言内容是否同步翻译内容？
-					</label>
-					<div class="layui-input-inline" style="width: 500px;">
-						<input type="radio" name="goflg" lay-skin="primary" title="不需要"
-							   value="0" checked>
-						<input type="radio" name="goflg" lay-skin="primary" title="需要"
-							   value="1">
-					</div>
-				</div>
 			<?php } ?>
-
+            <input type="hidden" id="fid" name="fid" value="<?php echo $fid ?>">
+			<input type="hidden" id="goflg" name="goflg" value="0">
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
 					<span class="x-red">*</span>头像
@@ -402,27 +392,85 @@ layui.use(['laydate', 'form'],
 
             $("#tab").validate({
                 submitHandler: function (form) {
-                    $.ajax({
-                        cache: true,
-                        type: "POST",
-                        url: "<?= RUN . '/goods/goods_save_edit' ?>",
-                        data: $('#tab').serialize(),
-                        async: false,
-                        error: function (request) {
-                            alert("error");
-                        },
-                        success: function (data) {
-                            var data = eval("(" + data + ")");
-                            if (data.success) {
-                                layer.msg(data.msg);
-                                setTimeout(function () {
-                                    cancel();
-                                }, 2000);
-                            } else {
-                                layer.msg(data.msg);
-                            }
-                        }
-                    });
+                    var fid = $("#fid").val();
+                    if(fid > 0){
+                        $.ajax({
+							cache: true,
+							type: "POST",
+							url: "<?= RUN . '/goods/goods_save_edit' ?>",
+							data: $('#tab').serialize(),
+							async: false,
+							error: function (request) {
+								alert("error");
+							},
+							success: function (data) {
+								var data = eval("(" + data + ")");
+								if (data.success) {
+									layer.msg(data.msg);
+									setTimeout(function () {
+										cancel();
+									}, 2000);
+								} else {
+									layer.msg(data.msg);
+								}
+							}
+						});
+                    }else{
+                        layer.confirm('原语言内容是否同步翻译内容？', {
+								title: '温馨提示',
+								btn: ['是', '否']
+								// 按钮
+							},
+							function (index) {
+								$("#goflg").val(1);
+								$.ajax({
+									cache: true,
+									type: "POST",
+									url: "<?= RUN . '/goods/goods_save_edit' ?>",
+									data: $('#tab').serialize(),
+									async: false,
+									error: function (request) {
+										alert("error");
+									},
+									success: function (data) {
+										var data = eval("(" + data + ")");
+										if (data.success) {
+											layer.msg(data.msg);
+											setTimeout(function () {
+												cancel();
+											}, 2000);
+										} else {
+											layer.msg(data.msg);
+										}
+									}
+								});
+							},
+							function (index) {
+								$("#goflg").val(0);
+								$.ajax({
+									cache: true,
+									type: "POST",
+									url: "<?= RUN . '/goods/goods_save_edit' ?>",
+									data: $('#tab').serialize(),
+									async: false,
+									error: function (request) {
+										alert("error");
+									},
+									success: function (data) {
+										var data = eval("(" + data + ")");
+										if (data.success) {
+											layer.msg(data.msg);
+											setTimeout(function () {
+												cancel();
+											}, 2000);
+										} else {
+											layer.msg(data.msg);
+										}
+									}
+								});
+							}
+					    );
+                    }
                 }
             });
         });
