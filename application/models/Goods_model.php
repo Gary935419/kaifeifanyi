@@ -303,8 +303,9 @@ public function goods_save_edit_fanyi2($text8,$text9,$text10,$text11,$text12,$te
 		return $this->db->query($sql);
 	}
 
-	public function goods_save_edit1($id,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$zhuangtai,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$fazhanshi,$zhuyaochanpin,$jianjie,$updatetime)
+	public function goods_save_edit1($leixing,$id,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$zhuangtai,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$fazhanshi,$zhuyaochanpin,$jianjie,$updatetime)
 	{
+		$leixing = $this->db->escape($leixing);
 		$id = $this->db->escape($id);
 		$updatetime = $this->db->escape($updatetime);
 		$touxiang = $this->db->escape($touxiang);
@@ -324,7 +325,7 @@ public function goods_save_edit_fanyi2($text8,$text9,$text10,$text11,$text12,$te
 		$fazhanshi = $this->db->escape($fazhanshi);
 		$zhuyaochanpin = $this->db->escape($zhuyaochanpin);
 		$jianjie = $this->db->escape($jianjie);
-		$sql = "UPDATE `kafeidian` SET updatetime=$updatetime,touxiang=$touxiang,mingcheng=$mingcheng,dianhua=$dianhua,youxiang=$youxiang,
+		$sql = "UPDATE `kafeidian` SET leixing=$leixing,updatetime=$updatetime,touxiang=$touxiang,mingcheng=$mingcheng,dianhua=$dianhua,youxiang=$youxiang,
                           zhou=$zhou,guojia=$guojia,chengshi=$chengshi,zhuangtai=$zhuangtai,
                           xiangxidizhi=$xiangxidizhi,xinghao=$xinghao,caigouliang=$caigouliang,caigoushijian=$caigoushijian,
                           chulitedian=$chulitedian,dianlogo=$dianlogo,

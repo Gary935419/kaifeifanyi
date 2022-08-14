@@ -54,38 +54,38 @@
 				<div action="" class="register_form layui-form">
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
+						<input type="text" maxlength="30" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="shoujihao" name="shoujihao" lay-verify="shoujihao" placeholder="<?php echo $yuyan4['text9'] ?>" />
+						<input type="text" maxlength="30" id="shoujihao" name="shoujihao" lay-verify="shoujihao" placeholder="<?php echo $yuyan4['text9'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico14.png" alt=""/>
 						<div class="register_yan">
-							<input type="text" id="yanzhengma" name="yanzhengma" lay-verify="yanzhengma" />
+							<input type="text" maxlength="30" id="yanzhengma" name="yanzhengma" lay-verify="yanzhengma" />
 							<button class="register_yan_btu" onclick="sendyanzhengma()"><?php echo $yuyan4['text8'] ?></button>
 						</div>
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="xing" name="xing" lay-verify="xing" placeholder="<?php echo $yuyan4['text10'] ?>" />
+						<input type="text" maxlength="30" id="xing" name="xing" lay-verify="xing" placeholder="<?php echo $yuyan4['text10'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="ming" name="ming" lay-verify="ming" placeholder="<?php echo $yuyan4['text11'] ?>" />
+						<input type="text" maxlength="30" id="ming" name="ming" lay-verify="ming" placeholder="<?php echo $yuyan4['text11'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="gsming" name="gsming" lay-verify="gsming" placeholder="<?php echo $yuyan4['text12'] ?>" />
+						<input type="text" maxlength="30" id="gsming" name="gsming" lay-verify="gsming" placeholder="<?php echo $yuyan4['text12'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="gsdizhi" name="gsdizhi" lay-verify="gsdizhi" placeholder="<?php echo $yuyan4['text13'] ?>" />
+						<input type="text" maxlength="30" id="gsdizhi" name="gsdizhi" lay-verify="gsdizhi" placeholder="<?php echo $yuyan4['text13'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="gsjianjie" name="gsjianjie" lay-verify="gsjianjie" placeholder="<?php echo $yuyan4['text14'] ?>" />
+						<input type="text" maxlength="30" id="gsjianjie" name="gsjianjie" lay-verify="gsjianjie" placeholder="<?php echo $yuyan4['text14'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico15.png" alt=""/>

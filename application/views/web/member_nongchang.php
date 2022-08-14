@@ -28,11 +28,7 @@
 		DD_belatedPNG.fix('*');
 	</script>
 	<![endif]-->
-	<script type="text/javascript">
-		$(function () {
-			$('.date_picker').date_input();
-		})
-	</script>
+
 	<script type="text/javascript" src="<?= STA ?>/lib/layui/layui.js" charset="utf-8"></script>
 	<script type="text/javascript" src="<?= STA ?>/js/xadmin.js"></script>
 	<script type="text/javascript" src="<?= STA ?>/js/jquery-1.11.2.min.js"></script>
@@ -113,7 +109,7 @@
 							<span class="idea_farming_name"><?php echo $yuyan3['text8'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico2.png" alt="" />
-								<input type="text" name="xingming" id="xingming" placeholder="<?php echo $yuyan3['text8'] ?>" />
+								<input type="text" maxlength="30" name="xingming" id="xingming" placeholder="<?php echo $yuyan3['text8'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
@@ -141,14 +137,14 @@
 							<span class="idea_farming_name"><?php echo $yuyan3['text10'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico3.png" alt="" />
-								<input type="text" name="dianhua" id="dianhua" placeholder="<?php echo $yuyan3['text10'] ?>" />
+								<input type="text" maxlength="30" name="dianhua" id="dianhua" placeholder="<?php echo $yuyan3['text10'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text11'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico4.png" alt="" />
-								<input type="text" name="youxiang" id="youxiang" placeholder="<?php echo $yuyan3['text11'] ?>" />
+								<input type="text" maxlength="30" name="youxiang" id="youxiang" placeholder="<?php echo $yuyan3['text11'] ?>" />
 							</div>
 						</div>
 					</div>
@@ -175,35 +171,35 @@
 							<span class="idea_farming_name"><?php echo $yuyan3['text14'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="kafeiming" id="kafeiming" placeholder="<?php echo $yuyan3['text14'] ?>" />
+								<input type="text" maxlength="30" name="kafeiming" id="kafeiming" placeholder="<?php echo $yuyan3['text14'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text15'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico6.png" alt="" />
-								<input type="text" name="caijididian" id="caijididian" placeholder="<?php echo $yuyan3['text15'] ?>" />
+								<input type="text" maxlength="30" name="caijididian" id="caijididian" placeholder="<?php echo $yuyan3['text15'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text16'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico6.png" alt="" />
-								<input type="text" name="xiangxidizhi" id="xiangxidizhi" placeholder="<?php echo $yuyan3['text16'] ?>" />
+								<input type="text" maxlength="30" name="xiangxidizhi" id="xiangxidizhi" placeholder="<?php echo $yuyan3['text16'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text17'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico7.png" alt="" />
-								<input type="text" name="zhongzhimianji" id="zhongzhimianji" placeholder="<?php echo $yuyan3['text17'] ?>" />
+								<input type="text" maxlength="30" name="zhongzhimianji" id="zhongzhimianji" placeholder="<?php echo $yuyan3['text17'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text18'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="chulifangshi" id="chulifangshi" placeholder="<?php echo $yuyan3['text18'] ?>" />
+								<input type="text" maxlength="30" name="chulifangshi" id="chulifangshi" placeholder="<?php echo $yuyan3['text18'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
@@ -218,35 +214,35 @@
 <!--							</div>-->
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico8.png" alt="" />
-								<input type="text" name="chulitedian" id="chulitedian" placeholder="<?php echo $yuyan3['text19'] ?>" />
+								<input type="text" maxlength="30" name="chulitedian" id="chulitedian" placeholder="<?php echo $yuyan3['text19'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text20'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="hongguoshuliang" id="hongguoshuliang" placeholder="<?php echo $yuyan3['text20'] ?>" />
+								<input type="text" maxlength="30" name="hongguoshuliang" id="hongguoshuliang" placeholder="<?php echo $yuyan3['text20'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text21'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="haibagaodu" id="haibagaodu" placeholder="<?php echo $yuyan3['text21'] ?>" />
+								<input type="text" maxlength="30" name="haibagaodu" id="haibagaodu" placeholder="<?php echo $yuyan3['text21'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text22'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="shouhuoshijian" class="date_picker" id="shouhuoshijian" placeholder="<?php echo $yuyan3['text22'] ?>" />
+								<input type="text" maxlength="30" name="shouhuoshijian" class="date_picker" id="shouhuoshijian" placeholder="<?php echo $yuyan3['text22'] ?>" />
 							</div>
 						</div>
 						<div class="idea_farming_area">
 							<span class="idea_farming_name"><?php echo $yuyan3['text23'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
-								<input type="text" name="niancanliang" id="niancanliang" placeholder="<?php echo $yuyan3['text23'] ?>" />
+								<input type="text" maxlength="30" name="niancanliang" id="niancanliang" placeholder="<?php echo $yuyan3['text23'] ?>" />
 							</div>
 						</div>
 					</div>
@@ -264,7 +260,7 @@
 							</div>
 						</div>
 					</div>
-					<button class="idea_farming_btu" onclick="insertmenmber()"><?php echo $yuyan2['text20'] ?></button>
+					<button class="idea_farming_btu" id="btn1" onclick="insertmenmber()"><?php echo $yuyan2['text20'] ?></button>
 				</div>
 			</div>
 		</div>
@@ -510,6 +506,9 @@
 </script>
 <script>
 	function insertmenmber() {
+	    $("#bt1").attr("disabled",true);
+	    $("#bt1").css('background','#f5f5f6');
+	    // layer.msg("系统处理中~请耐心等待!成功后会有弹窗提示!");
 		$.ajax({
 			cache: true,
 			type: "POST",
@@ -542,12 +541,18 @@
 			success: function (data) {
 				var data = eval("(" + data + ")");
 				if (data.result){
-					layer.msg(data.msg);
+					setTimeout(function(){
+					   layer.msg(data.msg);
+					},1000);
 					setTimeout(function(){
 						window.location.href='/';
-					},1000);
+					},2000);
 				}else {
-					layer.msg(data.msg);
+				    setTimeout(function(){
+					   layer.msg(data.msg);
+					},1000);
+					$("#bt1").attr("disabled",false);
+	                $("#bt1").css('background','#6f5a40');
 				}
 			}
 		});

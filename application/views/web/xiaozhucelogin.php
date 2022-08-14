@@ -54,7 +54,7 @@
 				<div action="" class="register_form layui-form">
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<input type="text" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
+						<input type="text" maxlength="30" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico15.png" alt=""/>

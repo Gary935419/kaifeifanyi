@@ -19,6 +19,7 @@ class Goods extends CI_Controller
         $this->load->model('Task_model', 'task');
         $this->load->model('Taskclass_model', 'taskclass');
 		$this->load->model('Itemsclass_model', 'itemsclass');
+		$this->load->library('BingTranslate');
         header("Content-type:text/html;charset=utf-8");
     }
 	public function fanyi_list()
@@ -452,6 +453,7 @@ public function goods_edit_fanyi2()
 		$data['zhou'] = $goods_info['zhou'];
 		$data['guojia'] = $goods_info['guojia'];
 		$data['chengshi'] = $goods_info['chengshi'];
+		$data['leixing'] = $goods_info['leixing'];
 		$data['xiangxidizhi'] = $goods_info['xiangxidizhi'];
 		$data['xinghao'] = $goods_info['xinghao'];
 		$data['caigouliang'] = $goods_info['caigouliang'];
@@ -516,198 +518,63 @@ public function goods_edit_fanyi2()
 			if (!empty($goflg)){
 				$yuyanflg = $goods_info['yuyanflg'];
 				$fanyitype = $yuyanflg == 1 ?"ZH_CN2EN":"EN2ZH_CN";
+				$from = 'cn';
+				$to = 'en';
+				if ($fanyitype == "EN2ZH_CN"){
+					$from = 'en';
+					$to = 'cn';
+				}
+
+				$BingTranslate = new BingTranslate();
+
 				$goods_info2 = $this->goods->getgoodsByIdfid($id);
 				$idfid = $goods_info2['id'];
+
+				$str = $xingming.' + '.$xingbie.' + '.$zhou.' + '.$guojia.' + '.$chengshi.' + '.$kafeiming.' + '.$caijididian.' + '.$xiangxidizhi.' + '.$zhongzhimianji.' + '.$chulifangshi.' + '.$chulitedian.' + '.$hongguoshuliang.' + '.$haibagaodu.' + '.$shouhuoshijian.' + '.$niancanliang;
+				$result = $BingTranslate->xfyun($str,$from,$to);
+				$result = json_decode($result,true);
+
 				$xingming1 = "";
-				if (!empty($xingming)){
-					$strqian = urlencode($xingming);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $xingming1 = $xingming1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$xingbie1 = "";
-				if (!empty($xingbie)){
-					$strqian = urlencode($xingbie);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $xingbie1 = $xingbie1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$zhou1 = "";
-				if (!empty($zhou)){
-					$strqian = urlencode($zhou);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $zhou1 = $zhou1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$guojia1 = "";
-				if (!empty($guojia)){
-					$strqian = urlencode($guojia);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $guojia1 = $guojia1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$chengshi1 = "";
-				if (!empty($chengshi)){
-					$strqian = urlencode($chengshi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $chengshi1 = $chengshi1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$kafeiming1 = "";
-				if (!empty($kafeiming)){
-					$strqian = urlencode($kafeiming);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $kafeiming1 = $kafeiming1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$caijididian1 = "";
-				if (!empty($caijididian)){
-					$strqian = urlencode($caijididian);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $caijididian1 = $caijididian1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$xiangxidizhi1 = "";
-				if (!empty($xiangxidizhi)){
-					$strqian = urlencode($xiangxidizhi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $xiangxidizhi1 = $xiangxidizhi1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$zhongzhimianji1 = "";
-				if (!empty($zhongzhimianji)){
-					$strqian = urlencode($zhongzhimianji);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $zhongzhimianji1 = $zhongzhimianji1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$chulifangshi1 = "";
-				if (!empty($chulifangshi)){
-					$strqian = urlencode($chulifangshi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $chulifangshi1 = $chulifangshi1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$chulitedian1 = "";
-				if (!empty($chulitedian)){
-					$strqian = urlencode($chulitedian);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $chulitedian1 = $chulitedian1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$hongguoshuliang1 = "";
-				if (!empty($hongguoshuliang)){
-					$strqian = urlencode($hongguoshuliang);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $hongguoshuliang1 = $hongguoshuliang1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$haibagaodu1 = "";
-				if (!empty($haibagaodu)){
-					$strqian = urlencode($haibagaodu);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $haibagaodu1 = $haibagaodu1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$shouhuoshijian1 = "";
-				if (!empty($shouhuoshijian)){
-					$strqian = urlencode($shouhuoshijian);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $shouhuoshijian1 = $shouhuoshijian1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$niancanliang1 = "";
-				if (!empty($niancanliang)){
-					$strqian = urlencode($niancanliang);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $niancanliang1 = $niancanliang1.$v['tgt'];
-            		   }
-	         	    }
+				if (empty($result['code'])) {
+					$arr = explode(' + ',$result['data']['result']['trans_result']['dst']);
+					$xingming1 = empty($arr[0])?'':$arr[0];
+					$xingbie1 = empty($arr[1])?'':$arr[1];
+					$zhou1 = empty($arr[2])?'':$arr[2];
+					$guojia1 = empty($arr[3])?'':$arr[3];
+					$chengshi1 = empty($arr[4])?'':$arr[4];
+					$kafeiming1 = empty($arr[5])?'':$arr[5];
+					$caijididian1 = empty($arr[6])?'':$arr[6];
+					$xiangxidizhi1 = empty($arr[7])?'':$arr[7];
+					$zhongzhimianji1 = empty($arr[8])?'':$arr[8];
+					$chulifangshi1 = empty($arr[9])?'':$arr[9];
+					$chulitedian1 = empty($arr[10])?'':$arr[10];
+					$hongguoshuliang1 = empty($arr[11])?'':$arr[11];
+					$haibagaodu1 = empty($arr[12])?'':$arr[12];
+					$shouhuoshijian1 = empty($arr[13])?'':$arr[13];
+					$niancanliang1 = empty($arr[14])?'':$arr[14];
 				}
 
 				$fazhanshi1 = "";
 				if (!empty($fazhanshi)){
-					$strqian = urlencode($fazhanshi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $fazhanshi1 = $fazhanshi1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($fazhanshi,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$fazhanshi1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$fazhanshi1 = str_replace("< p >", "<p>", $fazhanshi1);
 					$fazhanshi1 = str_replace("< / p >", "</p>", $fazhanshi1);
 					$fazhanshi1 = str_replace("< br >", "<br>", $fazhanshi1);
@@ -715,14 +582,11 @@ public function goods_edit_fanyi2()
 
 				$zhuyaochanpin1 = "";
 				if (!empty($zhuyaochanpin)){
-					$strqian = urlencode($zhuyaochanpin);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $zhuyaochanpin1 = $zhuyaochanpin1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($zhuyaochanpin,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$zhuyaochanpin1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$zhuyaochanpin1 = str_replace("< p >", "<p>", $zhuyaochanpin1);
 					$zhuyaochanpin1 = str_replace("< / p >", "</p>", $zhuyaochanpin1);
 					$zhuyaochanpin1 = str_replace("< br >", "<br>", $zhuyaochanpin1);
@@ -730,13 +594,11 @@ public function goods_edit_fanyi2()
 
 				$jianjie1 = "";
 				if (!empty($jianjie)){
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $jianjie1 = $jianjie1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($jianjie,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$jianjie1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$jianjie1 = str_replace("< p >", "<p>", $jianjie1);
 					$jianjie1 = str_replace("< / p >", "</p>", $jianjie1);
 					$jianjie1 = str_replace("< br >", "<br>", $jianjie1);
@@ -869,6 +731,7 @@ public function goods_edit_fanyi2()
 		$zhou = isset($_POST["zhou"]) ? $_POST["zhou"] : '';
 		$guojia = isset($_POST["guojia"]) ? $_POST["guojia"] : '';
 		$chengshi = isset($_POST["chengshi"]) ? $_POST["chengshi"] : '';
+		$leixing = isset($_POST["leixing"]) ? $_POST["leixing"] : '';
 		$xiangxidizhi = isset($_POST["xiangxidizhi"]) ? $_POST["xiangxidizhi"] : '';
 		$zhuangtai = isset($_POST["zhuangtai"]) ? $_POST["zhuangtai"] : '0';
 		$xinghao = isset($_POST["xinghao"]) ? $_POST["xinghao"] : '';
@@ -894,147 +757,54 @@ public function goods_edit_fanyi2()
 			$goflg = !empty($_POST["goflg"]) ? $_POST["goflg"] : 0;
 			if (!empty($goflg)){
 				$yuyanflg = $goods_info['yuyanflg'];
+
 				$fanyitype = $yuyanflg == 1 ?"ZH_CN2EN":"EN2ZH_CN";
+				$from = 'cn';
+				$to = 'en';
+				if ($fanyitype == "EN2ZH_CN"){
+					$from = 'en';
+					$to = 'cn';
+				}
+
+				$BingTranslate = new BingTranslate();
+
 				$goods_info2 = $this->goods->getgoodsByIdfid1($id);
 				$idfid = $goods_info2['id'];
 
-
+				$str = $mingcheng.' + '.$zhou.' + '.$guojia.' + '.$chengshi.' + '.$leixing.' + '.$xiangxidizhi.' + '.$xinghao.' + '.$caigouliang.' + '.$caigoushijian.' + '.$chulitedian;
+				$result = $BingTranslate->xfyun($str,$from,$to);
+				$result = json_decode($result,true);
 				$mingcheng1 = "";
-				if (!empty($mingcheng)){
-					$strqian = urlencode($mingcheng);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $mingcheng1 = $mingcheng1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$zhou1 = "";
-				if (!empty($zhou)){
-					$strqian = urlencode($zhou);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $zhou1 = $zhou1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$guojia1 = "";
-				if (!empty($guojia)){
-					$strqian = urlencode($guojia);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $guojia1 = $guojia1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$chengshi1 = "";
-				if (!empty($chengshi)){
-					$strqian = urlencode($chengshi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $chengshi1 = $chengshi1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
 				$leixing1 = "";
-				if (!empty($leixing)){
-					$strqian = urlencode($leixing);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $leixing1 = $leixing1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$xiangxidizhi1 = "";
-				if (!empty($xiangxidizhi)){
-					$strqian = urlencode($xiangxidizhi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $xiangxidizhi1 = $xiangxidizhi1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$xinghao1 = "";
-				if (!empty($xinghao)){
-					$strqian = urlencode($xinghao);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $xinghao1 = $xinghao1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$caigouliang1 = "";
-				if (!empty($caigouliang)){
-					$strqian = urlencode($caigouliang);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $caigouliang1 = $caigouliang1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$caigoushijian1 = "";
-				if (!empty($caigoushijian)){
-					$strqian = urlencode($caigoushijian);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $caigoushijian1 = $caigoushijian1.$v['tgt'];
-            		   }
-	         	    }
-				}
-
-
 				$chulitedian1 = "";
-				if (!empty($chulitedian)){
-					$strqian = urlencode($chulitedian);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $chulitedian1 = $chulitedian1.$v['tgt'];
-            		   }
-	         	    }
+				if (empty($result['code'])) {
+					$arr = explode(' + ',$result['data']['result']['trans_result']['dst']);
+					$mingcheng1 = empty($arr[0])?'':$arr[0];
+					$zhou1 = empty($arr[1])?'':$arr[1];
+					$guojia1 = empty($arr[2])?'':$arr[2];
+					$chengshi1 = empty($arr[3])?'':$arr[3];
+					$leixing1 = empty($arr[4])?'':$arr[4];
+					$xiangxidizhi1 = empty($arr[5])?'':$arr[5];
+					$xinghao1 = empty($arr[6])?'':$arr[6];
+					$caigouliang1 = empty($arr[7])?'':$arr[7];
+					$caigoushijian1 = empty($arr[8])?'':$arr[8];
+					$chulitedian1 = empty($arr[9])?'':$arr[9];
 				}
 
 				$fazhanshi1 = "";
 				if (!empty($fazhanshi)){
-					$strqian = urlencode($fazhanshi);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $fazhanshi1 = $fazhanshi1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($fazhanshi,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$fazhanshi1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$fazhanshi1 = str_replace("< p >", "<p>", $fazhanshi1);
 					$fazhanshi1 = str_replace("< / p >", "</p>", $fazhanshi1);
 					$fazhanshi1 = str_replace("< br >", "<br>", $fazhanshi1);
@@ -1042,14 +812,11 @@ public function goods_edit_fanyi2()
 
 				$zhuyaochanpin1 = "";
 				if (!empty($zhuyaochanpin)){
-					$strqian = urlencode($zhuyaochanpin);
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $zhuyaochanpin1 = $zhuyaochanpin1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($zhuyaochanpin,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$zhuyaochanpin1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$zhuyaochanpin1 = str_replace("< p >", "<p>", $zhuyaochanpin1);
 					$zhuyaochanpin1 = str_replace("< / p >", "</p>", $zhuyaochanpin1);
 					$zhuyaochanpin1 = str_replace("< br >", "<br>", $zhuyaochanpin1);
@@ -1057,24 +824,22 @@ public function goods_edit_fanyi2()
 
 				$jianjie1 = "";
 				if (!empty($jianjie)){
-					$url= "http://fanyi.youdao.com/translate?&doctype=json&type=".$fanyitype."&i=".$strqian;
-					$result = json_decode(file_get_contents($url),true);
-					if (!empty($result['translateResult'][0])) {
-            		   foreach ($result['translateResult'][0] as $k=>$v){
-            			  $jianjie1 = $jianjie1.$v['tgt'];
-            		   }
-	         	    }
+					$result = $BingTranslate->xfyun($jianjie,$from,$to);
+					$result = json_decode($result,true);
+					if (empty($result['code'])) {
+						$jianjie1 = $result['data']['result']['trans_result']['dst'];
+					}
 					$jianjie1 = str_replace("< p >", "<p>", $jianjie1);
 					$jianjie1 = str_replace("< / p >", "</p>", $jianjie1);
 					$jianjie1 = str_replace("< br >", "<br>", $jianjie1);
 				}
 
-				$this->goods->goods_save_edit1($idfid,$touxiang,$mingcheng1,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$zhuangtai,$xiangxidizhi1,$xinghao1,$caigouliang1,$caigoushijian1,$chulitedian1,$dianlogo,$fazhanshi1,$zhuyaochanpin1,$jianjie1,time());
+				$this->goods->goods_save_edit1($leixing1,$idfid,$touxiang,$mingcheng1,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$zhuangtai,$xiangxidizhi1,$xinghao1,$caigouliang1,$caigoushijian1,$chulitedian1,$dianlogo,$fazhanshi1,$zhuyaochanpin1,$jianjie1,time());
 				$this->goods->goods_new1($id,$zhuangtai);
 			}
 		}
 
-		$result = $this->goods->goods_save_edit1($id,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$zhuangtai,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$fazhanshi,$zhuyaochanpin,$jianjie,time());
+		$result = $this->goods->goods_save_edit1($leixing,$id,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$zhuangtai,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$fazhanshi,$zhuyaochanpin,$jianjie,time());
 		if ($result) {
 			echo json_encode(array('success' => true, 'msg' => "操作成功。"));
 			return;

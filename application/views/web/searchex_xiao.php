@@ -111,9 +111,9 @@
 				<!--sp-->
 				<?php if (!empty($showflg)){ ?>
 					<?php if (empty($ltype)){ ?>
-						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※以下内容翻译由有道翻译提供。</span>
+						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※以下内容翻译由科大讯飞翻译提供。</span>
 					<?php }else{ ?>
-						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※The translation of the following is provided by Youdao Translations.</span>
+						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※The translation of the following is provided by iFLYTEK Translations.</span>
 					<?php } ?>
 				<?php } ?>
 				<div class="spsearchex_yuan_sp">

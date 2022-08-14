@@ -24,7 +24,7 @@
 					<label class="layui-form-label" style="width: 30%;">
 					</label>
 					<div class="layui-input-inline" style="width: 300px;">
-						<span style="color: red;font-size: 16px;font-weight: bold;">温馨提示：</span><br><span class="x-red">※以下内容翻译由有道翻译提供。</span>
+						<span style="color: red;font-size: 16px;font-weight: bold;">温馨提示：</span><br><span class="x-red">※以下内容翻译由科大讯飞翻译提供。</span>
 					</div>
 				</div>
 			<?php } ?>
@@ -254,7 +254,15 @@
 					<textarea id="zhuyaochanpin" name="zhuyaochanpin"  lay-verify="zhuyaochanpin" class="layui-textarea"><?php echo $zhuyaochanpin ?></textarea>
 				</div>
 			</div>
-
+            <?php if (empty($fid)){ ?>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 30%;">
+					</label>
+					<div class="layui-input-inline" style="width: 300px;">
+						<span style="color: red;font-size: 16px;font-weight: bold;">温馨提示：</span><br><span class="x-red">※如果需同步翻译，点击提交按钮之后请耐心等待!成功后会有弹窗提示!。</span>
+					</div>
+				</div>
+			<?php } ?>
             <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
             <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label" style="width: 30%;">
@@ -416,7 +424,7 @@ layui.use(['laydate', 'form'],
 							}
 						});
                     }else{
-                        layer.confirm('原语言内容是否同步翻译内容？', {
+                        layer.confirm('原语言内容已修改是否同步翻译内容？', {
 								title: '温馨提示',
 								btn: ['是', '否']
 								// 按钮
@@ -435,12 +443,16 @@ layui.use(['laydate', 'form'],
 									success: function (data) {
 										var data = eval("(" + data + ")");
 										if (data.success) {
-											layer.msg(data.msg);
+											setTimeout(function(){
+                        					   layer.msg(data.msg);
+                        					},1000);
 											setTimeout(function () {
 												cancel();
-											}, 2000);
+											},2000);
 										} else {
-											layer.msg(data.msg);
+										    setTimeout(function(){
+                        					   layer.msg(data.msg);
+                        					},1000);
 										}
 									}
 								});
