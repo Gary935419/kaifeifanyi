@@ -13,6 +13,10 @@
 
 }
 @media only screen and  (max-width: 849px) {
+    .caption {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
 	.search_list_item_photo {
 		height: inherit;
 		width: inherit;

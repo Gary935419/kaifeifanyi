@@ -251,8 +251,8 @@ class Webviews extends CI_Controller
 			$data['mulu'] = "directory";
 		}
 		$data['youxiang'] = empty($_SESSION['user_email'])?'':$_SESSION['user_email'];
-		if (empty($result)){
-			$this->view_display("web/searchex_yuan",$data);
+		if (empty($result) || $result['zhuangtai'] != 1){
+			$this->view_display("web/index",$data);
 		}else{
 			$data['data'] = $result;
 			$this->view_display("web/searchex_yuan",$data);
@@ -303,7 +303,7 @@ class Webviews extends CI_Controller
 			$data['mulu'] = "directory";
 		}
 		$data['youxiang'] = empty($_SESSION['user_email'])?'':$_SESSION['user_email'];
-		if (empty($result)){
+		if (empty($result) || $result['zhuangtai'] != 1){
 			$this->view_display("web/index",$data);
 		}else{
 			$data['data'] = $result;
@@ -513,14 +513,6 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
-		if ($_POST["yanzhengma"] == "") {
-			$msg = "Please enter the verification code";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入验证码！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
 		if ($_POST["shoujihao"] == "") {
 			$msg = "Please enter your mobile phone number";
 			if (empty($_SESSION['LTYPE'])){
@@ -529,6 +521,24 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$shoujihao = isset($_POST["shoujihao"]) ? $_POST["shoujihao"] : '';
+		if (!$this->isPhone($shoujihao)){
+			$msg = "Please enter the correct telephone number";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确电话号码！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		if ($_POST["yanzhengma"] == "") {
+			$msg = "Please enter the verification code";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入验证码！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+
 		if ($_POST["xing"] == "") {
 			$msg = "Please enter your First Name";
 			if (empty($_SESSION['LTYPE'])){
@@ -540,15 +550,15 @@ class Webviews extends CI_Controller
 		if ($_POST["ming"] == "") {
 			$msg = "Please enter your Last Name";
 			if (empty($_SESSION['LTYPE'])){
-				$msg = "ming！";
+				$msg = "请输入名！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
 		if ($_POST["mima"] == "") {
-			$msg = "Please confirm your password";
+			$msg = "Please your password";
 			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入确认密码！";
+				$msg = "请输入密码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -565,15 +575,6 @@ class Webviews extends CI_Controller
 			$msg = "The confirm password does not match the password";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "确认密码与密码不匹配！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
-		$shoujihao = isset($_POST["shoujihao"]) ? $_POST["shoujihao"] : '';
-		if (!$this->isPhone($shoujihao)){
-			$msg = "Please enter the correct telephone number";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确电话号码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -639,18 +640,27 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
-		if ($_POST["yanzhengma"] == "") {
-			$msg = "Please enter the verification code";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入验证码！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
 		if ($_POST["shoujihao"] == "") {
 			$msg = "Please enter your mobile phone number";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "请输入手机号！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		$shoujihao = isset($_POST["shoujihao"]) ? $_POST["shoujihao"] : '';
+		if (!$this->isPhone($shoujihao)){
+			$msg = "Please enter the correct telephone number";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确电话号码！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		if ($_POST["yanzhengma"] == "") {
+			$msg = "Please enter the verification code";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入验证码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -666,15 +676,15 @@ class Webviews extends CI_Controller
 		if ($_POST["ming"] == "") {
 			$msg = "Please enter your Last Name";
 			if (empty($_SESSION['LTYPE'])){
-				$msg = "ming！";
+				$msg = "请输入名！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
 		if ($_POST["mima"] == "") {
-			$msg = "Please confirm your password";
+			$msg = "Please your password";
 			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入确认密码！";
+				$msg = "请输入密码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -691,16 +701,6 @@ class Webviews extends CI_Controller
 			$msg = "The confirm password does not match the password";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "确认密码与密码不匹配！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
-
-		$shoujihao = isset($_POST["shoujihao"]) ? $_POST["shoujihao"] : '';
-		if (!$this->isPhone($shoujihao)){
-			$msg = "Please enter the correct telephone number";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确电话号码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -794,10 +794,28 @@ class Webviews extends CI_Controller
 			echo json_encode(array('error' => true, 'msg' => $msg));
 			return false;
 		}
+		$dianhua = isset($_POST["dianhua"]) ? $_POST["dianhua"] : '';
+		if (!$this->isPhone($dianhua)){
+			$msg = "Please enter the correct telephone number";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确电话号码！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
 		if ($_POST["youxiang"] == "") {
 			$msg = "Please enter the coffee shop email.";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "请输入咖啡店邮箱";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+		$youxiang = isset($_POST["youxiang"]) ? $_POST["youxiang"] : '';
+		if (!$this->isEmail($youxiang)){
+			$msg = "Please enter the correct email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确邮箱地址！";
 			}
 			echo json_encode(array('error' => true, 'msg' => $msg));
 			return false;
@@ -885,24 +903,6 @@ class Webviews extends CI_Controller
 
 		$touxiang = isset($_POST["touxiang"]) ? $_POST["touxiang"] : '';
 		$mingcheng = isset($_POST["mingcheng"]) ? $_POST["mingcheng"] : '';
-		$dianhua = isset($_POST["dianhua"]) ? $_POST["dianhua"] : '';
-		if (!$this->isPhone($dianhua)){
-			$msg = "Please enter the correct telephone number";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确电话号码！";
-			}
-			echo json_encode(array('error' => true, 'msg' => $msg));
-			return false;
-		}
-		$youxiang = isset($_POST["youxiang"]) ? $_POST["youxiang"] : '';
-		if (!$this->isEmail($youxiang)){
-			$msg = "Please enter the correct email address";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确邮箱地址！";
-			}
-			echo json_encode(array('error' => true, 'msg' => $msg));
-			return false;
-		}
 		$zhou = isset($_POST["zhou"]) ? $_POST["zhou"] : '';
 		$guojia = isset($_POST["guojia"]) ? $_POST["guojia"] : '';
 		$chengshi = isset($_POST["chengshi"]) ? $_POST["chengshi"] : '';
@@ -1007,10 +1007,28 @@ class Webviews extends CI_Controller
 			echo json_encode(array('error' => true, 'msg' => $msg));
 			return false;
 		}
+		$dianhua = isset($_POST["dianhua"]) ? $_POST["dianhua"] : '';
+		if (!$this->isPhone($dianhua)){
+			$msg = "Please enter the correct telephone number";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确电话号码！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
 		if ($_POST["youxiang"] == "") {
 			$msg = "Please enter the farm mailbox.";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "请输入农场邮箱";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+		$youxiang = isset($_POST["youxiang"]) ? $_POST["youxiang"] : '';
+		if (!$this->isEmail($youxiang)){
+			$msg = "Please enter the correct email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确邮箱地址！";
 			}
 			echo json_encode(array('error' => true, 'msg' => $msg));
 			return false;
@@ -1131,24 +1149,6 @@ class Webviews extends CI_Controller
 		$touxiang = isset($_POST["touxiang"]) ? $_POST["touxiang"] : '';
 		$xingming = isset($_POST["xingming"]) ? $_POST["xingming"] : '';
 		$xingbie = isset($_POST["xingbie"]) && !empty($_POST["xingbie"]) ? $_POST["xingbie"] : 1;
-		$dianhua = isset($_POST["dianhua"]) ? $_POST["dianhua"] : '';
-		if (!$this->isPhone($dianhua)){
-			$msg = "Please enter the correct telephone number";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确电话号码！";
-			}
-			echo json_encode(array('error' => true, 'msg' => $msg));
-			return false;
-		}
-		$youxiang = isset($_POST["youxiang"]) ? $_POST["youxiang"] : '';
-		if (!$this->isEmail($youxiang)){
-			$msg = "Please enter the correct email address";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确邮箱地址！";
-			}
-			echo json_encode(array('error' => true, 'msg' => $msg));
-			return false;
-		}
 		$zhou = isset($_POST["zhou"]) ? $_POST["zhou"] : '';
 		$guojia = isset($_POST["guojia"]) ? $_POST["guojia"] : '';
 		$chengshi = isset($_POST["chengshi"]) ? $_POST["chengshi"] : '';
@@ -1352,9 +1352,9 @@ class Webviews extends CI_Controller
 			return false;
 		}
 		if ($_POST["mima"] == "") {
-			$msg = "Please confirm your password";
+			$msg = "Please your password";
 			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入确认密码！";
+				$msg = "请输入密码！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
@@ -1506,7 +1506,7 @@ class Webviews extends CI_Controller
 			$mail->Host = 'smtp.163.com';                // SMTP服务器
 			$mail->SMTPAuth = true;                      // 允许 SMTP 认证
 			$mail->Username = 'zhaoyue_gary@163.com';                // SMTP 用户名  即邮箱的用户名
-			$mail->Password = 'PBTGNNPWHIQIQWVQ';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+			$mail->Password = 'UZPZLJBQZWMALKXY';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
 			$mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
 			$mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
 
