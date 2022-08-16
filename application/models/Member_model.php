@@ -78,6 +78,22 @@ class Member_model extends CI_Model
 		}
 	}
 
+	public function getmemberinfoazhuce($name,$leixing)
+	{
+
+		$name = $this->db->escape($name);
+		$leixing = $this->db->escape($leixing);
+		$sql = "SELECT * FROM `member` WHERE youxiang= $name AND leixing = $leixing";
+
+		$rest = $this->db->query($sql);
+
+		if ($rest->num_rows() > 0) {
+			return $this->db->query($sql)->row_array();
+		} else {
+			return false;
+		}
+	}
+
 	public function getmemberinfoanew($name,$pwd)
 	{
 

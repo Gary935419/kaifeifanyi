@@ -252,6 +252,13 @@ class Webviews extends CI_Controller
 		}
 		$data['youxiang'] = empty($_SESSION['user_email'])?'':$_SESSION['user_email'];
 		if (empty($result) || $result['zhuangtai'] != 1){
+			$user_flg = 0;
+			if (empty($_SESSION['user_flg'])){
+				$_SESSION['user_flg'] = $user_flg + 1;
+			}else{
+				$_SESSION['user_flg'] = $_SESSION['user_flg'] + 1;
+			}
+			$data['user_flg'] = $_SESSION['user_flg'];
 			$this->view_display("web/index",$data);
 		}else{
 			$data['data'] = $result;
@@ -304,6 +311,13 @@ class Webviews extends CI_Controller
 		}
 		$data['youxiang'] = empty($_SESSION['user_email'])?'':$_SESSION['user_email'];
 		if (empty($result) || $result['zhuangtai'] != 1){
+			$user_flg = 0;
+			if (empty($_SESSION['user_flg'])){
+				$_SESSION['user_flg'] = $user_flg + 1;
+			}else{
+				$_SESSION['user_flg'] = $_SESSION['user_flg'] + 1;
+			}
+			$data['user_flg'] = $_SESSION['user_flg'];
 			$this->view_display("web/index",$data);
 		}else{
 			$data['data'] = $result;
@@ -593,6 +607,15 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,1);
+		if (!empty($membereinfo)){
+			$msg = "Current email address registered! Please enter replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址已经注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
 		$yanzhengma = isset($_POST["yanzhengma"]) ? $_POST["yanzhengma"] : '';
 		$mima = isset($_POST["mima"]) ? $_POST["mima"] : '';
 		$memberemail = $this->member->getmemberyanzhengma($youxiang,time());
@@ -612,15 +635,7 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
-		$membereinfo = $this->member->getmemberinfoa($youxiang,$mima,1);
-		if (!empty($membereinfo)){
-			$msg = "Current email address registered! Please enter replacement!";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "当前邮件地址已经注册！请输入更换！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
+
 		$this->member->getmemberinfoainsert($youxiang,$mima,1,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie);
 		$this->member->getyanzhengmaupdate($youxiang);
 		$msg = "Registered successfully!";
@@ -719,6 +734,15 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,2);
+		if (!empty($membereinfo)){
+			$msg = "Current email address registered! Please enter replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址已经注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
 		$yanzhengma = isset($_POST["yanzhengma"]) ? $_POST["yanzhengma"] : '';
 		$mima = isset($_POST["mima"]) ? $_POST["mima"] : '';
 		$memberemail = $this->member->getmemberyanzhengma($youxiang,time());
@@ -734,15 +758,6 @@ class Webviews extends CI_Controller
 			$msg = "Verification codes do not match! Please enter the correct verification code!";
 			if (empty($_SESSION['LTYPE'])){
 				$msg = "验证码不匹配！请输入正确验证码！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
-		$membereinfo = $this->member->getmemberinfoa($youxiang,$mima,2);
-		if (!empty($membereinfo)){
-			$msg = "Current email address registered! Please enter replacement!";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "当前邮件地址已经注册！请输入更换！";
 			}
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
