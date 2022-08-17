@@ -54,17 +54,17 @@
 				<div action="" class="register_form layui-form">
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico14.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="text" maxlength="30" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="text" maxlength="30" id="shoujihao" name="shoujihao" lay-verify="shoujihao" placeholder="<?php echo $yuyan4['text9'] ?>" />
 					</div>
 					<div class="register_box">
 						<img style="width: 25px;" src="<?= STA ?>/images/web/mail-open.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<div class="register_yan">
 							<input type="text" maxlength="30" id="yanzhengma" name="yanzhengma" lay-verify="yanzhengma" />
 							<button class="register_yan_btu" onclick="sendyanzhengma()"><?php echo $yuyan4['text8'] ?></button>
@@ -72,12 +72,12 @@
 					</div>
 					<div class="register_box">
 						<img style="width: 25px;"  src="<?= STA ?>/images/web/edit-name.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="text" maxlength="30" id="xing" name="xing" lay-verify="xing" placeholder="<?php echo $yuyan4['text10'] ?>" />
 					</div>
 					<div class="register_box">
 						<img style="width: 25px;"  src="<?= STA ?>/images/web/edit-name.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="text" maxlength="30" id="ming" name="ming" lay-verify="ming" placeholder="<?php echo $yuyan4['text11'] ?>" />
 					</div>
 					<div class="register_box">
@@ -94,12 +94,12 @@
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico15.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="password" id="mima" name="mima" lay-verify="mima" placeholder="<?php echo $yuyan4['text3'] ?>" />
 					</div>
 					<div class="register_box">
 						<img src="<?= STA ?>/images/web/ico15.png" alt=""/>
-						<span style="color: red;">*</span>
+						<span style="color: red;margin-right: 5px;">*</span>
 						<input type="password" id="querenmima" name="querenmima" lay-verify="querenmima" placeholder="<?php echo $yuyan4['text4'] ?>" />
 					</div>
 <!--					<div class="register_info">-->

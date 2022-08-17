@@ -53,11 +53,11 @@
 				<span class="register_title"><?php echo $yuyan4['text15'] ?></span>
 				<div action="" class="register_form layui-form">
 					<div class="register_box">
-						<img src="<?= STA ?>/images/web/ico13.png" alt=""/>
+						<img src="<?= STA ?>/images/web/ico14.png" alt=""/>
 						<input type="text" maxlength="30" id="youxiang" name="youxiang" lay-verify="youxiang" placeholder="<?php echo $yuyan4['text2'] ?>" />
 					</div>
 					<div class="register_box">
-						<img src="<?= STA ?>/images/web/ico14.png" alt=""/>
+						<img style="width: 25px;" src="<?= STA ?>/images/web/mail-open.png" alt=""/>
 						<div class="register_yan">
 						    <input type="hidden" id="leixing" name="leixing" value="<?php echo $leixing ?>" />
 							<input type="text" id="yanzhengma" name="yanzhengma" lay-verify="yanzhengma" />

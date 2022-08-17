@@ -527,6 +527,24 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
+		if (!$this->isEmail($youxiang)){
+			$msg = "Please enter the correct email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确邮箱地址！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,1);
+		if (!empty($membereinfo)){
+			$msg = "Current email address registered! Please enter replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址已经注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
 		if ($_POST["shoujihao"] == "") {
 			$msg = "Please enter your mobile phone number";
 			if (empty($_SESSION['LTYPE'])){
@@ -598,24 +616,7 @@ class Webviews extends CI_Controller
 		$gsming = isset($_POST["gsming"]) ? $_POST["gsming"] : '';
 		$gsdizhi = isset($_POST["gsdizhi"]) ? $_POST["gsdizhi"] : '';
 		$gsjianjie = isset($_POST["gsjianjie"]) ? $_POST["gsjianjie"] : '';
-		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
-		if (!$this->isEmail($youxiang)){
-			$msg = "Please enter the correct email address";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确邮箱地址！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
-		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,1);
-		if (!empty($membereinfo)){
-			$msg = "Current email address registered! Please enter replacement!";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "当前邮件地址已经注册！请输入更换！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
+		
 		$yanzhengma = isset($_POST["yanzhengma"]) ? $_POST["yanzhengma"] : '';
 		$mima = isset($_POST["mima"]) ? $_POST["mima"] : '';
 		$memberemail = $this->member->getmemberyanzhengma($youxiang,time());
@@ -655,6 +656,24 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
+		if (!$this->isEmail($youxiang)){
+			$msg = "Please enter the correct email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确邮箱地址！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,2);
+		if (!empty($membereinfo)){
+			$msg = "Current email address registered! Please enter replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址已经注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
 		if ($_POST["shoujihao"] == "") {
 			$msg = "Please enter your mobile phone number";
 			if (empty($_SESSION['LTYPE'])){
@@ -725,24 +744,7 @@ class Webviews extends CI_Controller
 		$gsming = isset($_POST["gsming"]) ? $_POST["gsming"] : '';
 		$gsdizhi = isset($_POST["gsdizhi"]) ? $_POST["gsdizhi"] : '';
 		$gsjianjie = isset($_POST["gsjianjie"]) ? $_POST["gsjianjie"] : '';
-		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
-		if (!$this->isEmail($youxiang)){
-			$msg = "Please enter the correct email address";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确邮箱地址！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
-		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,2);
-		if (!empty($membereinfo)){
-			$msg = "Current email address registered! Please enter replacement!";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "当前邮件地址已经注册！请输入更换！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
+		
 		$yanzhengma = isset($_POST["yanzhengma"]) ? $_POST["yanzhengma"] : '';
 		$mima = isset($_POST["mima"]) ? $_POST["mima"] : '';
 		$memberemail = $this->member->getmemberyanzhengma($youxiang,time());
