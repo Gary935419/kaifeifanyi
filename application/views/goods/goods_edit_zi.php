@@ -226,7 +226,7 @@
 					<span class="x-red">*</span>收货时间
 				</label>
 				<div class="layui-input-inline layui-show-xs-block" style="width: 300px;">
-					<input class="layui-input" placeholder="收货时间" value="<?php echo $shouhuoshijian ?>" name="shouhuoshijian" id="shouhuoshijian">
+					<input type="text" class="layui-input" placeholder="收货时间" value="<?php echo $shouhuoshijian ?>" name="shouhuoshijian" id="shouhuoshijian">
 				</div>
 			</div>
 
@@ -274,16 +274,6 @@
         </form>
     </div>
 </div>
-<script>
-layui.use(['laydate', 'form'],
-        function() {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#shouhuoshijian' //指定元素
-            });
-        });
-</script>
 <script>
     layui.use('upload', function(){
         var $ = layui.jquery

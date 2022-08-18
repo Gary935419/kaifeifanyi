@@ -1165,7 +1165,7 @@ class Webviews extends CI_Controller
 
 		$touxiang = isset($_POST["touxiang"]) ? $_POST["touxiang"] : '';
 		$xingming = isset($_POST["xingming"]) ? $_POST["xingming"] : '';
-		$xingbie = isset($_POST["xingbie"]) && !empty($_POST["xingbie"]) ? $_POST["xingbie"] : 1;
+		$xingbie = isset($_POST["xingbie"]) ? $_POST["xingbie"] : 1;
 		$zhou = isset($_POST["zhou"]) ? $_POST["zhou"] : '';
 		$guojia = isset($_POST["guojia"]) ? $_POST["guojia"] : '';
 		$chengshi = isset($_POST["chengshi"]) ? $_POST["chengshi"] : '';
@@ -1233,7 +1233,7 @@ class Webviews extends CI_Controller
 			$niancanliang1 = empty($arr[14])?'':$arr[14];
 		}
 
-		$this->member->getmemberinfoainsertnongchang($id,$yuyanflg1,$mid,$touxiang,$xingming1,$xingbie1,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$kafeiming1,$caijididian1,$xiangxidizhi1,$zhongzhimianji1,$chulifangshi1,$chulitedian1,$hongguoshuliang1,$haibagaodu1,$shouhuoshijian1,$niancanliang1,$nonglogo,$addtime,$zhuangtai);
+		$this->member->getmemberinfoainsertnongchang($id,$yuyanflg1,$mid,$touxiang,$xingming1,$xingbie,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$kafeiming1,$caijididian1,$xiangxidizhi1,$zhongzhimianji1,$chulifangshi1,$chulitedian1,$hongguoshuliang1,$haibagaodu1,$shouhuoshijian1,$niancanliang1,$nonglogo,$addtime,$zhuangtai);
 		$this->member->getyanzhengmaupdatekafei($mid,2);
 		$_SESSION['user_email'] = $membereinfo['youxiang'];
 		$msg = "Operation Successful!";
@@ -1360,6 +1360,25 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
+		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
+		if (!$this->isEmail($youxiang)){
+			$msg = "Please enter the correct email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入正确邮箱地址！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		$leixing = isset($_POST["leixing"]) ? $_POST["leixing"] : '';
+		$membereinfo = $this->member->getmemberinfoazhuce($youxiang,$leixing);
+		if (empty($membereinfo)){
+			$msg = "Current email address is not registered! Please input replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址没有注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
 		if ($_POST["yanzhengma"] == "") {
 			$msg = "Please enter the verification code";
 			if (empty($_SESSION['LTYPE'])){
@@ -1392,16 +1411,8 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
-		$leixing = isset($_POST["leixing"]) ? $_POST["leixing"] : '';
-		$youxiang = isset($_POST["email"]) ? $_POST["email"] : '';
-		if (!$this->isEmail($youxiang)){
-			$msg = "Please enter the correct email address";
-			if (empty($_SESSION['LTYPE'])){
-				$msg = "请输入正确邮箱地址！";
-			}
-			echo json_encode(array('result' => 0, 'msg' => $msg));
-			return false;
-		}
+		
+		
 		$yanzhengma = isset($_POST["yanzhengma"]) ? $_POST["yanzhengma"] : '';
 		$mima = isset($_POST["mima"]) ? $_POST["mima"] : '';
 		$memberemail = $this->member->getmemberyanzhengma($youxiang,time());
@@ -1505,6 +1516,95 @@ class Webviews extends CI_Controller
 			echo json_encode(array('error' => true, 'msg' => $msg));
 			return false;
 		}
+		
+		$memberemail = $this->member->getmemberyanzhengma($email,time());
+		if (!empty($memberemail)){
+			$msg = "Sent successfully! Please check the verification code in the mailbox!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "发送成功！请去邮箱内查看验证码！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+		$mail = new PHPMailer(true);
+		try {
+			//服务器配置
+			$mail->CharSet ="UTF-8";                     //设定邮件编码
+			$mail->SMTPDebug = 0;                        // 调试模式输出
+			$mail->isSMTP();                             // 使用SMTP
+			$mail->Host = 'smtp.163.com';                // SMTP服务器
+			$mail->SMTPAuth = true;                      // 允许 SMTP 认证
+			$mail->Username = 'zhaoyue_gary@163.com';                // SMTP 用户名  即邮箱的用户名
+			$mail->Password = 'UZPZLJBQZWMALKXY';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+			$mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
+			$mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
+
+			$mail->setFrom('zhaoyue_gary@163.com', 'Mailer');  //发件人
+			$mail->addAddress($email, 'Joe');  // 收件人
+			//$mail->addAddress('ellen@example.com');  // 可添加多个收件人
+			$mail->addReplyTo('zhaoyue_gary@163.com', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+			//$mail->addCC('cc@example.com');                    //抄送
+			//$mail->addBCC('bcc@example.com');                    //密送
+
+			//发送附件
+			// $mail->addAttachment('../xy.zip');         // 添加附件
+			// $mail->addAttachment('../thumb-1.jpg', 'new.jpg');    // 发送附件并且重命名
+			$yanzhengma = $this->randStr();
+			//Content
+			$mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
+			$mail->Subject = '验证码';
+			$mail->Body    = '<h1>'.$yanzhengma.'</h1><br>发送时间：' . date('Y-m-d H:i:s') . '<br>过期时间：'. date('Y-m-d H:i:s',time() + 3600);
+			$mail->AltBody = '如果邮件客户端不支持HTML则显示此内容';
+
+			$mail->send();
+			$this->member->getmemberyanzhengmainsert($email,time()+1800,$yanzhengma,time(),1);
+			$msg = "Sent successfully! Please check the verification code in the mailbox!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "发送成功！请去邮箱内查看验证码！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+		} catch (Exception $e) {
+			$msg = "Sent error!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "发送失败！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+		}
+	}
+	public function sendemailwangji()
+	{
+
+		if ($_POST["email"] == "") {
+			$msg = "Please enter your email address";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "请输入邮件地址";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+
+		$email = isset($_POST["email"]) ? $_POST["email"] : '';
+		$pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
+		if (!preg_match($pattern,$email))
+		{
+			$msg = "The email address you entered is invalid";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "您输入的电子邮件地址不合法";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+
+		$membereinfo = $this->member->getmemberinfoazhucecheck($email);
+		if (empty($membereinfo)){
+			$msg = "Current email address is not registered! Please input replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址没有注册！请输入更换！";
+			}
+			echo json_encode(array('error' => true, 'msg' => $msg));
+			return false;
+		}
+
 		$memberemail = $this->member->getmemberyanzhengma($email,time());
 		if (!empty($memberemail)){
 			$msg = "Sent successfully! Please check the verification code in the mailbox!";

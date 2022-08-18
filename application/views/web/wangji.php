@@ -100,7 +100,7 @@
 		$.ajax({
 			cache: true,
 			type: "POST",
-			url: "<?= RUN . '/webviews/sendemail' ?>",
+			url: "<?= RUN . '/webviews/sendemailwangji' ?>",
 			data: {email:$('#youxiang').val()},
 			async: false,
 			error: function (request) {

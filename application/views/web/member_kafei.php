@@ -93,6 +93,7 @@
 					</div>
 					<div class="idea_farming_block">
 						<div class="idea_farming_area idea_farming_area1">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text7'] ?>：<font>*</font></span>
 							<!--pc-->
 							<div class="idea_farming_box">
@@ -109,6 +110,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text8'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico2.png" alt="" />
@@ -116,6 +118,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text9'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico3.png" alt="" />
@@ -123,6 +126,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text10'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico4.png" alt="" />
@@ -136,6 +140,7 @@
 					</div>
 					<div class="idea_farming_block">
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text12'] ?>：</span>
 							<div class="idea_farming_info idea_farming_info1" id="box">
 								<select class="layui-form-label" id="form1" name="zhou">
@@ -150,6 +155,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text13'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico5.png" alt="" />
@@ -157,6 +163,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text14'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico6.png" alt="" />
@@ -164,6 +171,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text15'] ?>：</span>
 <!--							<div class="idea_farming_info idea_farming_border">-->
 <!--								<img src="--><?//= STA ?><!--/images/web/ico7.png" alt="" />-->
@@ -179,6 +187,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text16'] ?>：</span>
 <!--							<div class="idea_farming_two">-->
 <!--								<div class="idea_farming_info idea_farming_border">-->
@@ -204,6 +213,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text17'] ?>：</span>
 							<div class="idea_farming_info idea_farming_border">
 								<img src="<?= STA ?>/images/web/ico6.png" alt="" />
@@ -211,6 +221,7 @@
 							</div>
 						</div>
 						<div class="idea_farming_area">
+						    <span style="color: red;margin-right: 5px;">*</span>
 							<span class="idea_farming_name"><?php echo $yuyan2['text18'] ?>：</span>
 <!--							<div class="idea_farming_info idea_farming_border">-->
 <!--								<img src="--><?//= STA ?><!--/images/web/ico8.png" alt="" />-->
@@ -229,6 +240,7 @@
 					<div class="idea_farming_title">
 						<img src="<?= STA ?>/images/web/ico1.png" alt="" />
 						<span><?php echo $yuyan2['text19'] ?></span>
+						<span style="color: red;margin-right: 5px;">*</span>
 					</div>
 					<div class="idea_farming_block">
 						<div class="idea_farming_kuai">

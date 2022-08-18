@@ -228,16 +228,6 @@
     </div>
 </div>
 <script>
-layui.use(['laydate', 'form'],
-        function() {
-            var laydate = layui.laydate;
-            //执行一个laydate实例
-            laydate.render({
-                elem: '#shouhuoshijian' //指定元素
-            });
-        });
-</script>
-<script>
     layui.use('upload', function(){
         var $ = layui.jquery
             ,upload = layui.upload;

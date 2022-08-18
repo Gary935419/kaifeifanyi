@@ -480,7 +480,7 @@ public function goods_edit_fanyi2()
         $id = isset($_POST["id"]) ? $_POST["id"] : '';
 		$touxiang = isset($_POST["touxiang"]) ? $_POST["touxiang"] : '';
         $xingming = isset($_POST["xingming"]) ? $_POST["xingming"] : '';
-        $xingbie = isset($_POST["xingbie"]) ? $_POST["xingbie"] : '';
+        $xingbie = isset($_POST["xingbie"]) ? $_POST["xingbie"] : 1;
         $dianhua = isset($_POST["dianhua"]) ? $_POST["dianhua"] : '';
 		$youxiang = isset($_POST["youxiang"]) ? $_POST["youxiang"] : '';
         $zhou = isset($_POST["zhou"]) ? $_POST["zhou"] : '';
@@ -603,7 +603,7 @@ public function goods_edit_fanyi2()
 					$jianjie1 = str_replace("< / p >", "</p>", $jianjie1);
 					$jianjie1 = str_replace("< br >", "<br>", $jianjie1);
 				}
-				$this->goods->goods_save_edit($idfid,$hongguoshuliang1,$haibagaodu1,$touxiang,$xingming1,$xingbie1,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$kafeiming1,$zhuangtai,$caijididian1,$xiangxidizhi1,$zhongzhimianji1,$chulifangshi1,$chulitedian1,$shouhuoshijian1,$niancanliang1,$nonglogo,$fazhanshi1,$zhuyaochanpin1,$jianjie1,time());
+				$this->goods->goods_save_edit($idfid,$hongguoshuliang1,$haibagaodu1,$touxiang,$xingming1,$xingbie,$dianhua,$youxiang,$zhou1,$guojia1,$chengshi1,$kafeiming1,$zhuangtai,$caijididian1,$xiangxidizhi1,$zhongzhimianji1,$chulifangshi1,$chulitedian1,$shouhuoshijian1,$niancanliang1,$nonglogo,$fazhanshi1,$zhuyaochanpin1,$jianjie1,time());
 				$this->goods->goods_new2($id,$zhuangtai);
 			}
 		}
