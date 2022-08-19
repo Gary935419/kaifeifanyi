@@ -138,7 +138,7 @@
 			cache: true,
 			type: "POST",
 			url: "<?= RUN . '/webviews/sendemail' ?>",
-			data: {email:$('#youxiang').val()},
+			data: {email:$('#youxiang').val(),leixing:1},
 			async: false,
 			error: function (request) {
 				alert("error");

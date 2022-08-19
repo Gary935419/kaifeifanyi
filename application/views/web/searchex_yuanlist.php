@@ -169,7 +169,7 @@
 											<div class="search_list_info">
 												<img src="<?= $once['touxiang'] ?>" alt="" />
 												<div class="search_list_box">
-													<span class="search_list_xiao"><?= $once['xingbie'] == 1 ? ($ltype>0?'Man':'男' ) : ($ltype=0?'女':'woman' ) ?></span>
+													<span class="search_list_xiao"><?= $once['xingbie'] == 1 ? ($ltype>0?'Man':'男' ) : ($ltype==0?'女':'woman' ) ?></span>
 													<span class="search_list_xiao"><?= $once['zhou'] ?></span>
 													<span class="search_list_da"><?= $once['xingming'] ?></span>
 													<span class="search_list_da"><?= $once['guojia'] ?></span>

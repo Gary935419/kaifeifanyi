@@ -1517,6 +1517,17 @@ class Webviews extends CI_Controller
 			return false;
 		}
 		
+		$leixing = isset($_POST["leixing"]) ? $_POST["leixing"] : '';
+		$membereinfo = $this->member->getmemberinfoazhuce($email,$leixing);
+		if (!empty($membereinfo)){
+			$msg = "Current email address is registered! Please input replacement!";
+			if (empty($_SESSION['LTYPE'])){
+				$msg = "当前邮件地址已经注册！请输入更换！";
+			}
+			echo json_encode(array('result' => 0, 'msg' => $msg));
+			return false;
+		}
+		
 		$memberemail = $this->member->getmemberyanzhengma($email,time());
 		if (!empty($memberemail)){
 			$msg = "Sent successfully! Please check the verification code in the mailbox!";
