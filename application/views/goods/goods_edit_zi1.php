@@ -78,7 +78,7 @@
 					<span class="x-red">*</span>电话
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="number" id="dianhua" name="dianhua" lay-verify="dianhua"
+					<input type="number" maxlength="30" id="dianhua" name="dianhua" lay-verify="dianhua"
 						   autocomplete="off" value="<?php echo $dianhua ?>" class="layui-input">
 				</div>
 			</div>
@@ -87,7 +87,7 @@
 					<span class="x-red">*</span>邮件
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="youxiang" name="youxiang" lay-verify="youxiang"
+					<input type="text" maxlength="30" id="youxiang" name="youxiang" lay-verify="youxiang"
 						   autocomplete="off" value="<?php echo $youxiang ?>" class="layui-input">
 				</div>
 			</div>
@@ -96,7 +96,7 @@
                     <span class="x-red">*</span>名称
                 </label>
                 <div class="layui-input-inline" style="width: 300px;">
-                    <input type="text" id="mingcheng" name="mingcheng" lay-verify="mingcheng"
+                    <input type="text" maxlength="30" id="mingcheng" name="mingcheng" lay-verify="mingcheng"
                            autocomplete="off" value="<?php echo $mingcheng ?>" class="layui-input">
                 </div>
             </div>
@@ -106,7 +106,7 @@
 					<span class="x-red">*</span>大洲
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="zhou" name="zhou" lay-verify="zhou"
+					<input type="text" maxlength="30" id="zhou" name="zhou" lay-verify="zhou"
 						   autocomplete="off" value="<?php echo $zhou ?>" class="layui-input">
 				</div>
 			</div>
@@ -115,7 +115,7 @@
 					<span class="x-red">*</span>国家
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="guojia" name="guojia" lay-verify="guojia"
+					<input type="text" maxlength="30" id="guojia" name="guojia" lay-verify="guojia"
 						   autocomplete="off" value="<?php echo $guojia ?>" class="layui-input">
 				</div>
 			</div>
@@ -124,7 +124,7 @@
 					<span class="x-red">*</span>城市
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="chengshi" name="chengshi" lay-verify="chengshi"
+					<input type="text" maxlength="30" id="chengshi" name="chengshi" lay-verify="chengshi"
 						   autocomplete="off" value="<?php echo $chengshi ?>" class="layui-input">
 				</div>
 			</div>
@@ -133,7 +133,7 @@
 					<span class="x-red">*</span>服务类型
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="leixing" name="leixing" lay-verify="leixing"
+					<input type="text" maxlength="30" id="leixing" name="leixing" lay-verify="leixing"
 						   autocomplete="off" value="<?php echo $leixing ?>" class="layui-input">
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 					<span class="x-red">*</span>详细地址
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="xiangxidizhi" name="xiangxidizhi" lay-verify="xiangxidizhi"
+					<input type="text" maxlength="30" id="xiangxidizhi" name="xiangxidizhi" lay-verify="xiangxidizhi"
 						   autocomplete="off" value="<?php echo $xiangxidizhi ?>" class="layui-input">
 				</div>
 			</div>
@@ -151,7 +151,7 @@
 					<span class="x-red">*</span>型号
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="xinghao" name="xinghao" lay-verify="xinghao"
+					<input type="text" maxlength="30" id="xinghao" name="xinghao" lay-verify="xinghao"
 						   autocomplete="off" value="<?php echo $xinghao ?>" class="layui-input">
 				</div>
 			</div>
@@ -160,7 +160,7 @@
 					<span class="x-red">*</span>采购量
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="caigouliang" name="caigouliang" lay-verify="caigouliang"
+					<input type="text" maxlength="30" id="caigouliang" name="caigouliang" lay-verify="caigouliang"
 						   autocomplete="off" value="<?php echo $caigouliang ?>" class="layui-input">
 				</div>
 			</div>
@@ -169,7 +169,7 @@
 					<span class="x-red">*</span>采购时间
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="caigoushijian" name="caigoushijian" lay-verify="caigoushijian"
+					<input type="text" maxlength="30" id="caigoushijian" name="caigoushijian" lay-verify="caigoushijian"
 						   autocomplete="off" value="<?php echo $caigoushijian ?>" class="layui-input">
 				</div>
 			</div>
@@ -178,7 +178,7 @@
 					<span class="x-red">*</span>处理特点
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
-					<input type="text" id="chulitedian" name="chulitedian" lay-verify="chulitedian"
+					<input type="text" maxlength="30" id="chulitedian" name="chulitedian" lay-verify="chulitedian"
 						   autocomplete="off" value="<?php echo $chulitedian ?>" class="layui-input">
 				</div>
 			</div>
