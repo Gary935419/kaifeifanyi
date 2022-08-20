@@ -177,16 +177,16 @@
 											</div>
 											<div class="search_list_xian"></div>
 											<div class="search_list_area">
-												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text14'] ?>：<?= $once['kafeiming'] ?></span>
-												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text17'] ?>：<?= $once['zhongzhimianji'] ?></span>
-												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text23'] ?>：<?= $once['niancanliang'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text14'] ?>：<?= $once['kafeiming'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text17'] ?>：<?= $once['zhongzhimianji'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text23'] ?>：<?= $once['niancanliang'] ?></span>
 											</div>
 											<div class="spsearch_list_area">
 												<img src="<?= STA ?>/images/web/pro3.jpg" alt="" />
 												<div class="spsearch_list_box">
-													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text14'] ?>：<?= $once['kafeiming'] ?></span>
-													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text17'] ?>：<?= $once['zhongzhimianji'] ?></span>
-													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan3['text23'] ?>：<?= $once['niancanliang'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text14'] ?>：<?= $once['kafeiming'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text17'] ?>：<?= $once['zhongzhimianji'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;"><?php echo $yuyan3['text23'] ?>：<?= $once['niancanliang'] ?></span>
 												</div>
 											</div>
 										</div>
