@@ -174,16 +174,16 @@
 											</div>
 											<div class="search_list_xian"></div>
 											<div class="search_list_area">
-												<span><font><?php echo $yuyan2['text8'] ?>：</font><?= $once['mingcheng'] ?></span>
-												<span><font><?php echo $yuyan2['text15'] ?>：</font><?= $once['xinghao'] ?></span>
-												<span><font><?php echo $yuyan2['text16'] ?>：</font><?= $once['caigouliang'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text8'] ?>：<?= $once['mingcheng'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text15'] ?>：<?= $once['xinghao'] ?></span>
+												<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text16'] ?>：<?= $once['caigouliang'] ?></span>
 											</div>
 											<div class="spsearch_list_area">
 												<img src="<?= STA ?>/images/web/pro3.jpg" alt="" />
 												<div class="spsearch_list_box">
-													<span><font><?php echo $yuyan2['text8'] ?>：</font><?= $once['mingcheng'] ?></span>
-													<span><font><?php echo $yuyan2['text15'] ?>：</font><?= $once['xinghao'] ?></span>
-													<span><font><?php echo $yuyan2['text16'] ?>：</font><?= $once['caigouliang'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text8'] ?>：<?= $once['mingcheng'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text15'] ?>：<?= $once['xinghao'] ?></span>
+													<span style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;"><?php echo $yuyan2['text16'] ?>：<?= $once['caigouliang'] ?></span>
 												</div>
 											</div>
 										</div>
