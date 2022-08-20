@@ -16,6 +16,7 @@ class Member extends CI_Controller
             header("Location:" . RUN . '/login/logout');
         }
         $this->load->model('Member_model', 'member');
+		$this->config->load('myconfig');
         header("Content-type:text/html;charset=utf-8");
     }
     /**

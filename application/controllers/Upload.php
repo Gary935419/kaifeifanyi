@@ -15,6 +15,7 @@ class Upload extends CI_Controller
 //        if (!isset($_SESSION['user_name'])) {
 //            header("Location:" . RUN . '/login/logout');
 //        }
+		$this->config->load('myconfig');
         header("Content-type:text/html;charset=utf-8");
     }
     function GetRandStr($length){
@@ -45,7 +46,7 @@ class Upload extends CI_Controller
 		if (empty($_SESSION['LTYPE'])){
 			$msg = "上传成功！";
 		}
-		echo json_encode(array('code' => 200,'src' => "https://kafei.dltqwy.com".$src, 'msg' => $msg));
+		echo json_encode(array('code' => 200,'src' => $this->config->item('uploadurl').$src, 'msg' => $msg));
 		return;
 
     }
@@ -62,7 +63,7 @@ class Upload extends CI_Controller
 		if (file_exists("./static/uploads/".$fileName)) {
 			$src="/static/uploads/".$fileName;
 		}
-		echo json_encode(array('code' => 200,'src' => "https://kafei.dltqwy.com".$src, 'msg' => "上传成功"));
+		echo json_encode(array('code' => 200,'src' => $this->config->item('uploadurl').$src, 'msg' => "上传成功"));
 		return;
 	}
     /**
@@ -77,7 +78,7 @@ class Upload extends CI_Controller
             $src="/static/uploads/".$fileName;
         }
         $data = array();
-        $data['src'] = "https://kafei.dltqwy.com".$src;
+        $data['src'] = $this->config->item('uploadurl').$src;
         echo json_encode(array('code' => 0,'msg' => "上传成功", 'data' => $data));
         return;
     }
@@ -93,7 +94,7 @@ class Upload extends CI_Controller
             $fileName = $_swap.".".substr(strrchr($_FILES['file']['name'][$i], '.'), 1);
             move_uploaded_file($_FILES['file']["tmp_name"][$i], "./static/upload/".$fileName);
             if (file_exists("./static/upload/".$fileName)) {
-                $src[]="https://kafei.dltqwy.com"."/static/upload/".$fileName;
+                $src[]=$this->config->item('uploadurl')."/static/upload/".$fileName;
             }
         }
         $data = array();
@@ -126,7 +127,7 @@ class Upload extends CI_Controller
 			$new_file = $new_file.$picname;
 			if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64_image_content)))){
 				$src = "/static/uploads/".$fileName.$picname;
-				return "https://kafei.dltqwy.com".$src;;
+				return $this->config->item('uploadurl').$src;;
 			}else{
 				return false;
 			}

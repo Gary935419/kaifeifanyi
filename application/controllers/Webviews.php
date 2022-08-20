@@ -15,6 +15,8 @@ class Webviews extends CI_Controller
         $this->load->model('Users_model', 'users');
 		$this->load->model('Member_model', 'member');
 		$this->load->library('BingTranslate');
+		$this->config->load('myconfig');
+
 		if (!empty($_COOKIE['user_cookie']) && isset($_COOKIE['user_cookie']) && empty($_SESSION['user_email'])){
 			if ($_COOKIE['user_cookie_delete'] != 999){
 				$_SESSION['user_email'] = $_COOKIE['user_cookie'];
@@ -1545,15 +1547,15 @@ class Webviews extends CI_Controller
 			$mail->isSMTP();                             // 使用SMTP
 			$mail->Host = 'smtp.163.com';                // SMTP服务器
 			$mail->SMTPAuth = true;                      // 允许 SMTP 认证
-			$mail->Username = 'zhaoyue_gary@163.com';                // SMTP 用户名  即邮箱的用户名
-			$mail->Password = 'UZPZLJBQZWMALKXY';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+			$mail->Username = $this->config->item('Email_Username');                // SMTP 用户名  即邮箱的用户名
+			$mail->Password = $this->config->item('Email_Password');             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
 			$mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
 			$mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
 
-			$mail->setFrom('zhaoyue_gary@163.com', 'Mailer');  //发件人
+			$mail->setFrom($this->config->item('Email_Address'), 'Mailer');  //发件人
 			$mail->addAddress($email, 'Joe');  // 收件人
 			//$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-			$mail->addReplyTo('zhaoyue_gary@163.com', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+			$mail->addReplyTo($this->config->item('Email_Address'), 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
 			//$mail->addCC('cc@example.com');                    //抄送
 			//$mail->addBCC('bcc@example.com');                    //密送
 
@@ -1633,15 +1635,15 @@ class Webviews extends CI_Controller
 			$mail->isSMTP();                             // 使用SMTP
 			$mail->Host = 'smtp.163.com';                // SMTP服务器
 			$mail->SMTPAuth = true;                      // 允许 SMTP 认证
-			$mail->Username = 'zhaoyue_gary@163.com';                // SMTP 用户名  即邮箱的用户名
-			$mail->Password = 'UZPZLJBQZWMALKXY';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+			$mail->Username = $this->config->item('Email_Username');                // SMTP 用户名  即邮箱的用户名
+			$mail->Password = $this->config->item('Email_Password');             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
 			$mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
 			$mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
 
-			$mail->setFrom('zhaoyue_gary@163.com', 'Mailer');  //发件人
+			$mail->setFrom($this->config->item('Email_Address'), 'Mailer');  //发件人
 			$mail->addAddress($email, 'Joe');  // 收件人
 			//$mail->addAddress('ellen@example.com');  // 可添加多个收件人
-			$mail->addReplyTo('zhaoyue_gary@163.com', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+			$mail->addReplyTo($this->config->item('Email_Address'), 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
 			//$mail->addCC('cc@example.com');                    //抄送
 			//$mail->addBCC('bcc@example.com');                    //密送
 
