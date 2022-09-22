@@ -78,11 +78,11 @@
 			<div class="loginnew">
 				<?php if (empty($ltype)){ ?>
 					<a href="<?= RUN . '/webviews/wangji?ltype=2' ?>" class="search_login">
-						<span>英文</span>
+						<span>English</span>
 					</a>
 				<?php }else{ ?>
 					<a href="<?= RUN . '/webviews/wangji?ltype=1' ?>" class="search_login">
-						<span>Chinese</span>
+						<span>中文</span>
 					</a>
 				<?php } ?>
 			</div>

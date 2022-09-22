@@ -45,11 +45,11 @@
 		<!--pc--><div class="loginnew loginnew1">
     		<?php if (empty($ltype)){ ?>
     			<a href="<?= RUN . '/webviews/memberkafei?ltype=2' ?>" class="search_login">
-    				<span>英文</span>
+    				<span>English</span>
     			</a>
     		<?php }else{ ?>
     			<a href="<?= RUN . '/webviews/memberkafei?ltype=1' ?>" class="search_login">
-    				<span>Chinese</span>
+    				<span>中文</span>
     			</a>
     		<?php } ?>
     	</div>

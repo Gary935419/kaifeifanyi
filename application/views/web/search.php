@@ -58,11 +58,11 @@
 			<div class="loginnew">
     		<?php if (empty($ltype)){ ?>
     			<a href="<?= RUN . '/webviews/search?ltype=2' ?>" class="search_login" style="margin-top: 60px">
-    				<span>英文</span>
+    				<span>English</span>
     			</a>
     		<?php }else{ ?>
     			<a href="<?= RUN . '/webviews/search?ltype=1' ?>" class="search_login" style="margin-top: 60px">
-    				<span>Chinese</span>
+    				<span>中文</span>
     			</a>
     		<?php } ?>
     
