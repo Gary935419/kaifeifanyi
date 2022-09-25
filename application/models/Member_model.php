@@ -125,7 +125,7 @@ class Member_model extends CI_Model
 		}
 	}
 
-	public function getmemberinfoainsert($youxiang,$mima,$leixing,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie)
+	public function getmemberinfoainsert($youxiang,$mima,$leixing,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie,$xingming)
 	{
 		$youxiang = $this->db->escape($youxiang);
 		$mima = md5($mima);
@@ -137,8 +137,9 @@ class Member_model extends CI_Model
 		$gsming = $this->db->escape($gsming);
 		$gsdizhi = $this->db->escape($gsdizhi);
 		$gsjianjie = $this->db->escape($gsjianjie);
+		$xingming = $this->db->escape($xingming);
 		$addtime = time();
-		$sql = "INSERT INTO `member` (youxiang,mima,leixing,addtime,shoujihao,xing,ming,gsming,gsdizhi,gsjianjie) VALUES ($youxiang,$mima,$leixing,$addtime,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie);";
+		$sql = "INSERT INTO `member` (xingming,youxiang,mima,leixing,addtime,shoujihao,xing,ming,gsming,gsdizhi,gsjianjie) VALUES ($xingming,$youxiang,$mima,$leixing,$addtime,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie);";
 		return $this->db->query($sql);
 	}
 	public function getmemberinfoainsertkafei($fid,$yuyanflg,$mid,$touxiang,$mingcheng,$dianhua,$youxiang,$zhou,$guojia,$chengshi,$leixing,$xiangxidizhi,$xinghao,$caigouliang,$caigoushijian,$chulitedian,$dianlogo,$addttime,$zhuangtai)
@@ -222,7 +223,7 @@ class Member_model extends CI_Model
 	{
 		$sqlw = " where 1=1 and leixing = 1";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xing like '%" . $youxiang . "%' or ming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number,concat(xing,ming) as xingming FROM `member` " . $sqlw;
 		$number = $this->db->query($sql)->row()->number;
@@ -233,7 +234,7 @@ class Member_model extends CI_Model
 	{
 		$sqlw = " where 1=1 and leixing = 1";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xing like '%" . $youxiang . "%' or ming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;
@@ -245,7 +246,7 @@ class Member_model extends CI_Model
 	{
 		$sqlw = " where 1=1 and leixing = 2";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xing like '%" . $youxiang . "%' or ming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number FROM `member` " . $sqlw;
 		$number = $this->db->query($sql)->row()->number;
@@ -256,7 +257,7 @@ class Member_model extends CI_Model
 	{
 		$sqlw = " where 1=1 and leixing = 2";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xing like '%" . $youxiang . "%' or ming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;

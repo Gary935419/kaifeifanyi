@@ -639,7 +639,7 @@ class Webviews extends CI_Controller
 			return false;
 		}
 
-		$this->member->getmemberinfoainsert($youxiang,$mima,1,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie);
+		$this->member->getmemberinfoainsert($youxiang,$mima,1,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie,$xing.$ming);
 		$this->member->getyanzhengmaupdate($youxiang);
 		$msg = "Registered successfully!";
 		if (empty($_SESSION['LTYPE'])){
@@ -766,7 +766,7 @@ class Webviews extends CI_Controller
 			echo json_encode(array('result' => 0, 'msg' => $msg));
 			return false;
 		}
-		$this->member->getmemberinfoainsert($youxiang,$mima,2,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie);
+		$this->member->getmemberinfoainsert($youxiang,$mima,2,$shoujihao,$xing,$ming,$gsming,$gsdizhi,$gsjianjie,$xing.$ming);
 		$this->member->getyanzhengmaupdate($youxiang);
 		$msg = "Registered successfully!";
 		if (empty($_SESSION['LTYPE'])){
