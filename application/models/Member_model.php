@@ -221,9 +221,8 @@ class Member_model extends CI_Model
 	public function getmemberAllPagev($youxiang)
 	{
 		$sqlw = " where 1=1 and leixing = 2";
-
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number FROM `member` " . $sqlw;
 		$number = $this->db->query($sql)->row()->number;
@@ -233,9 +232,8 @@ class Member_model extends CI_Model
 	public function getmemberAllv($pg, $youxiang)
 	{
 		$sqlw = " where 1=1 and leixing = 2";
-
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;
@@ -274,10 +272,9 @@ class Member_model extends CI_Model
     public function getmemberAllPage($youxiang)
     {
 		$sqlw = " where 1=1 and leixing = 1";
-
-        if (!empty($youxiang)) {
-            $sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
-        }
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' ) ";
+		}
         $sql = "SELECT count(1) as number FROM `member` " . $sqlw;
         $number = $this->db->query($sql)->row()->number;
         return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
@@ -286,14 +283,12 @@ class Member_model extends CI_Model
     public function getmemberAll($pg,$youxiang)
     {
 		$sqlw = " where 1=1 and leixing = 1";
-
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' ) ";
 		}
         $start = ($pg - 1) * 10;
         $stop = 10;
         $sql = "SELECT u.* FROM `member` u  " . $sqlw . " order by addtime desc LIMIT $start, $stop";
-//        print_r($sql);die;
         return $this->db->query($sql)->result_array();
     }
 

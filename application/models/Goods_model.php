@@ -45,9 +45,9 @@ class Goods_model extends CI_Model
     public function getgoodsAllPage($xingming)
     {
 		$sqlw = " where 1=1 and fid='' ";
-        if (!empty($xingming)) {
-            $sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
-        }
+		if (!empty($xingming)) {
+			$sqlw .= " and ( youxiang like '%" . $xingming . "%' or dianhua like '%" . $xingming . "%' or xingming like '%" . $xingming . "%' ) ";
+		}
         $sql = "SELECT count(1) as number FROM `nongchangzhu`" . $sqlw;
 
         $number = $this->db->query($sql)->row()->number;
@@ -57,9 +57,9 @@ class Goods_model extends CI_Model
     public function getgoodsAllNew($pg,$xingming)
     {
         $sqlw = " where 1=1 and fid='' ";
-        if (!empty($xingming)) {
-            $sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
-        }
+		if (!empty($xingming)) {
+			$sqlw .= " and ( youxiang like '%" . $xingming . "%' or dianhua like '%" . $xingming . "%' or xingming like '%" . $xingming . "%' ) ";
+		}
         $start = ($pg - 1) * 10;
         $stop = 10;
 
@@ -70,8 +70,8 @@ class Goods_model extends CI_Model
 	public function getgoodsAllPage1($mingcheng)
 	{
 		$sqlw = " where 1=1 and fid='' ";
-		if (!empty($xingming)) {
-			$sqlw .= " and ( mingcheng like '%" . $mingcheng . "%' ) ";
+		if (!empty($mingcheng)) {
+			$sqlw .= " and ( youxiang like '%" . $mingcheng . "%' or dianhua like '%" . $mingcheng . "%' or mingcheng like '%" . $mingcheng . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number FROM `kafeidian`" . $sqlw;
 
@@ -83,7 +83,7 @@ class Goods_model extends CI_Model
 	{
 		$sqlw = " where 1=1 and fid='' ";
 		if (!empty($mingcheng)) {
-			$sqlw .= " and ( mingcheng like '%" . $mingcheng . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $mingcheng . "%' or dianhua like '%" . $mingcheng . "%' or mingcheng like '%" . $mingcheng . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;

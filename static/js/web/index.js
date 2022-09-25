@@ -32,6 +32,9 @@ $(function(){
 	$(".spsearchex_yuan_sp_menuclose").click(function() {
 		$(".spsearchex_yuan_sp_menumodel").hide();
 	});
+	$(".close").click(function() {
+		$(".search_list_bottom").hide();
+	});
 	
     $('.top').click(function(){
            $('html , body').animate({scrollTop: 0},'slow');

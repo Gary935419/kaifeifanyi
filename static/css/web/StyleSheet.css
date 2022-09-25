@@ -105,17 +105,21 @@ span {
 	background: url(../../images/web/bg5.jpg) no-repeat center center;
 	background-size: cover;
 }
+.register_section > a > img {
+width: 80px;
+}
 .register_section img {
 	margin: 0 auto;
 }
 .register_en {
-	font-size: 41px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 55px;
-	max-width: 85%;
-	margin: 30px auto 0 auto;
-	font-family: '华文中宋';
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 30px;
+    max-width: 100%;
+    margin: 15px auto 0 auto;
+    font-family: '华文中宋';
+    padding: 0 15px;
 }
 .register_zh {
 	font-size: 20px;
@@ -171,15 +175,15 @@ span {
 	align-items: center;
 	background: url(../../images/web/bg4.jpg) no-repeat center center;
 	background-size: cover;
-	padding: 115px 0;
+	padding: 20px 0;
 }
 .register_title {
 	text-align: center;
-	font-size: 22px;
-	color: #ffffff;
-	font-family: 'SourceHanSansCN-Normal';
-	margin-top: 50px;
-	margin-bottom: 25px;
+    font-size: 17px;
+    color: #ffffff;
+    font-family: 'SourceHanSansCN-Normal';
+    margin-top: 18px;
+    margin-bottom: 10px;
 }
 .register_form {
 	display: block;
@@ -194,12 +198,15 @@ span {
 	border-radius: 50px;
 	border: 1px solid #fff;
 	padding: 10px 50px;
-	margin-bottom: 15px;
-	height: 47px;
+	margin-bottom: 10px;
+	height: 40px;
+}
+.register_box img {
+width: 15px;
 }
 .register_box input {
 	width: 87%;
-	font-size: 16px;
+	font-size: 14px;
 	color: #ffffff;
 	border: none;
 	outline: none;
@@ -243,11 +250,11 @@ span {
 	background: #6f5a40;
 	border-radius: 50px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	color: #ffffff;
-	height: 47px;
-	line-height: 47px;
-	margin: 70px 0 30px 0;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 30px 0;
 }
 .register__login {
 	text-align: center;
@@ -265,7 +272,7 @@ span {
 	align-items: center;
 	background: url(../../images/web/bg3.jpg) no-repeat center center;
 	background-size: cover;
-	padding: 115px 0;
+	padding: 20px 0;
 }
 .register_yan {
 	width: 87%;
@@ -277,7 +284,7 @@ span {
 	width: 80%;
 }
 .register_yan_btu {
-	font-size: 16px;
+	font-size: 14px;
 	color: #ffffff;
 	background: transparent;
 	border: none;
@@ -399,6 +406,7 @@ span {
 	position: fixed;
 	right: 0;
 	top: 25px;
+	min-width: 205px;
 }
 .search_login span {
 	font-size: 14px;
@@ -414,7 +422,7 @@ span {
 	margin: 0 auto;
 }
 .searchex_yuan .register_en {
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 }
 .searchex_yuan .register_zh {
@@ -668,7 +676,7 @@ span {
 	margin: 0 auto;
 }
 .searchex_xiaoliat .register_en {
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 }
 .searchex_xiaoliat .register_zh {
@@ -873,13 +881,13 @@ select::-ms-expand {
 	background: -o-linear-gradient(transparent, #000);
 	background: -moz-linear-gradient(transparent, #000);
 	background: linear-gradient(transparent , #000);
-	padding: 125px 0;
+	padding: 40px 0;
 }
 .search_list_small {
 	text-align: center;
 	font-size: 19px;
 	color: #ffffff;
-	margin-top: 20%;
+	margin-top: 15%;
 }
 .search_list_bottom_box {
 	margin-top: 25px;
@@ -888,11 +896,11 @@ select::-ms-expand {
 	align-items: center;
 }
 .search_list_bottom_box a {
-	font-size: 19px;
+	font-size: 16px;
 	color: #ffffff;
 	border-radius: 50px;
 	border: 1px solid #fff;
-	padding: 18px 30px;
+	padding: 10px 40px;
 	margin: 0 25px;
 }
 .search_list_bottom_box a:hover {
@@ -965,7 +973,7 @@ select::-ms-expand {
 }
 .idea_farming_top .register_en {
 	color: #6f5a40;
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 }
 .idea_farming_top .register_zh {
@@ -1202,7 +1210,7 @@ select::-ms-expand {
 	margin: 0 auto;
 }
 .idea_business_top .register_en {
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 24px;
 }
 .idea_business_top .register_zh {
@@ -1294,4 +1302,28 @@ select::-ms-expand {
 .caption {
     margin-top: 40px;
     margin-bottom: -30px;
+}
+.zi {
+    margin-top: 35px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.zi a {
+    font-size: 14px;
+    color: #333;
+}
+.zi span {
+    font-size: 14px;
+    color: #333;
+}
+.register_infonew {
+    margin-bottom: 15px;
+}
+.close {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 55px;
+    color: #999191;
+    cursor: pointer;
 }

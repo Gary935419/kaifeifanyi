@@ -29,7 +29,7 @@
                     <form class="layui-form layui-col-space5" method="get" action="<?= RUN, '/goods/goods_list' ?>">
                         <div class="layui-inline layui-show-xs-block">
                             <input type="text" name="xingming" id="xingming" value="<?php echo $xingming ?>"
-                                   placeholder="农场主名称" autocomplete="off" class="layui-input">
+                                   placeholder="农场主名称或电话或邮箱" autocomplete="off" class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn" lay-submit="" lay-filter="sreach"><i

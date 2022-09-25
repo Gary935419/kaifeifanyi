@@ -58,7 +58,7 @@
 						<img src="<?= STA ?>/images/web/ico15.png" alt=""/>
 						<input type="password" id="mima" name="mima" lay-verify="mima" placeholder="<?php echo $yuyan4['text3'] ?>" />
 					</div>
-					<div class="register_info">
+					<div class="register_info register_infonew">
                        <input type="checkbox" name="zidongflg" id="zidongflg" value="1"/>
 						<span><?php echo $yuyan4['text17'] ?></span>
                     </div>

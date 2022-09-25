@@ -109,6 +109,17 @@
 		</div>
 		<div class="center">
 			<div class="inner search_list_inner">
+				<?php if (empty($ltype)){ ?>
+					<div class="zi">
+						<a href="<?= RUN . '/' ?>">首页 - </a>
+						<a href="#">消费地</a>
+					</div>
+				<?php }else{ ?>
+					<div class="zi">
+						<a href="<?= RUN . '/' ?>">Top - </a>
+						<a href="#">ROASTERS</a>
+					</div>
+				<?php } ?>
 				<!--pc-->
 				<div class="search_list_top">
 					<span class="search_list_top_all"><?php echo $yuyan1['text8'] ?></span>
@@ -205,6 +216,11 @@
 						<a href="<?= RUN . '/webviews/yuanzhuce' ?>"><?php echo $yuyan1['text4'] ?></a>
 						<a href="<?= RUN . '/webviews/xiaozhuce' ?>"><?php echo $yuyan1['text3'] ?></a>
 					</div>
+					<?php if (empty($ltype)){ ?>
+						<span class="close">关闭</span>
+					<?php }else{ ?>
+						<span class="close">Close</span>
+					<?php } ?>
 				</div>
 			<?php } ?>
 		</div>

@@ -141,6 +141,8 @@
 	.search_login {
 		/*display: none;*/
 		position: absolute;
+		min-width: inherit;
+		text-align: center;
 	}
 	.search_section > img {
 		width: 80px;

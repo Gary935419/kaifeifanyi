@@ -109,6 +109,19 @@
 		</div>
 		<div class="center">
 			<div class="inner">
+				<?php if (empty($ltype)){ ?>
+					<div class="zi">
+						<a href="<?= RUN . '/' ?>">首页 - </a>
+						<a href="<?= RUN . '/webviews/searchex_yuanlist?stype=2' ?>">原产地 - </a>
+						<a href="#">原产地详情</a>
+					</div>
+				<?php }else{ ?>
+					<div class="zi">
+						<a href="<?= RUN . '/' ?>">Top - </a>
+						<a href="<?= RUN . '/webviews/searchex_xiaolist?stype=1' ?>">ORIGINS - </a>
+						<a href="#">ORIGINS Details</a>
+					</div>
+				<?php } ?>
 				<?php if (!empty($showflg)){ ?>
 					<?php if (empty($ltype)){ ?>
 						<span style="font-size: 16px;color: #af8750;display: inline-flex;" class="caption">※以下内容翻译由科大讯飞翻译提供。</span>

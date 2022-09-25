@@ -34,7 +34,7 @@
                     <form class="layui-form layui-col-space5" method="get" action="<?= RUN, '/member/member_list' ?>">
 						<div class="layui-inline layui-show-xs-block">
                             <input type="text" name="youxiang" id="youxiang" value="<?php echo $youxiang ?>"
-                                   placeholder="邮件地址" autocomplete="off" class="layui-input">
+                                   placeholder="手机号或邮件或公司名" autocomplete="off" class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
