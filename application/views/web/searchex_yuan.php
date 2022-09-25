@@ -111,15 +111,15 @@
 			<div class="inner">
 				<?php if (empty($ltype)){ ?>
 					<div class="zi">
-						<a href="<?= RUN . '/' ?>">首页 - </a>
-						<a href="<?= RUN . '/webviews/searchex_yuanlist?stype=2' ?>">原产地 - </a>
-						<a href="#">原产地详情</a>
+						<a style="font-weight: bold" href="<?= RUN . '/' ?>">首页&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/webviews/searchex_yuanlist?stype=2' ?>">原产地&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="#">原产地详情&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				<?php }else{ ?>
 					<div class="zi">
-						<a href="<?= RUN . '/' ?>">Top - </a>
-						<a href="<?= RUN . '/webviews/searchex_xiaolist?stype=1' ?>">ORIGINS - </a>
-						<a href="#">ORIGINS Details</a>
+						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Top&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/webviews/searchex_xiaolist?stype=1' ?>">ORIGINS&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="#">ORIGINS Details&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				<?php } ?>
 				<?php if (!empty($showflg)){ ?>

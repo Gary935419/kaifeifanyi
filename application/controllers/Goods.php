@@ -550,7 +550,7 @@ public function goods_edit_fanyi2()
 				$shouhuoshijian1 = "";
 				$niancanliang1 = "";
 				if (empty($result['code'])) {
-					$arr = explode(' + ',$result['data']['result']['trans_result']['dst']);
+					$arr = explode('+',$result['data']['result']['trans_result']['dst']);
 					$xingming1 = empty($arr[0])?'':$arr[0];
 					$xingbie1 = empty($arr[1])?'':$arr[1];
 					$zhou1 = empty($arr[2])?'':$arr[2];
@@ -785,7 +785,7 @@ public function goods_edit_fanyi2()
 				$caigoushijian1 = "";
 				$chulitedian1 = "";
 				if (empty($result['code'])) {
-					$arr = explode(' + ',$result['data']['result']['trans_result']['dst']);
+					$arr = explode('+',$result['data']['result']['trans_result']['dst']);
 					$mingcheng1 = empty($arr[0])?'':$arr[0];
 					$zhou1 = empty($arr[1])?'':$arr[1];
 					$guojia1 = empty($arr[2])?'':$arr[2];
