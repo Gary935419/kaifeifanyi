@@ -42,11 +42,17 @@ class Goods_model extends CI_Model
 		return $this->db->query($sql)->row_array();
 	}
     //商品count
-    public function getgoodsAllPage($xingming)
+    public function getgoodsAllPage($xingming,$youxiang,$dianhua)
     {
 		$sqlw = " where 1=1 and fid='' ";
 		if (!empty($xingming)) {
-			$sqlw .= " and ( youxiang like '%" . $xingming . "%' or dianhua like '%" . $xingming . "%' or xingming like '%" . $xingming . "%' ) ";
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
+		}
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($dianhua)) {
+			$sqlw .= " and ( dianhua like '%" . $dianhua . "%' ) ";
 		}
         $sql = "SELECT count(1) as number FROM `nongchangzhu`" . $sqlw;
 
@@ -54,11 +60,17 @@ class Goods_model extends CI_Model
         return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
     }
     //商品list
-    public function getgoodsAllNew($pg,$xingming)
+    public function getgoodsAllNew($pg,$xingming,$youxiang,$dianhua)
     {
         $sqlw = " where 1=1 and fid='' ";
 		if (!empty($xingming)) {
-			$sqlw .= " and ( youxiang like '%" . $xingming . "%' or dianhua like '%" . $xingming . "%' or xingming like '%" . $xingming . "%' ) ";
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
+		}
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($dianhua)) {
+			$sqlw .= " and ( dianhua like '%" . $dianhua . "%' ) ";
 		}
         $start = ($pg - 1) * 10;
         $stop = 10;
@@ -67,11 +79,17 @@ class Goods_model extends CI_Model
         return $this->db->query($sql)->result_array();
     }
 	//商品count
-	public function getgoodsAllPage1($mingcheng)
+	public function getgoodsAllPage1($mingcheng,$youxiang,$dianhua)
 	{
 		$sqlw = " where 1=1 and fid='' ";
 		if (!empty($mingcheng)) {
-			$sqlw .= " and ( youxiang like '%" . $mingcheng . "%' or dianhua like '%" . $mingcheng . "%' or mingcheng like '%" . $mingcheng . "%' ) ";
+			$sqlw .= " and ( mingcheng like '%" . $mingcheng . "%' ) ";
+		}
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($dianhua)) {
+			$sqlw .= " and ( dianhua like '%" . $dianhua . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number FROM `kafeidian`" . $sqlw;
 
@@ -79,11 +97,17 @@ class Goods_model extends CI_Model
 		return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
 	}
 	//商品list
-	public function getgoodsAllNew1($pg,$mingcheng)
+	public function getgoodsAllNew1($pg,$mingcheng,$youxiang,$dianhua)
 	{
 		$sqlw = " where 1=1 and fid='' ";
 		if (!empty($mingcheng)) {
-			$sqlw .= " and ( youxiang like '%" . $mingcheng . "%' or dianhua like '%" . $mingcheng . "%' or mingcheng like '%" . $mingcheng . "%' ) ";
+			$sqlw .= " and ( mingcheng like '%" . $mingcheng . "%' ) ";
+		}
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($dianhua)) {
+			$sqlw .= " and ( dianhua like '%" . $dianhua . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;

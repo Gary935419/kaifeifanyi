@@ -32,9 +32,21 @@
 			<div class="layui-card">
 				<div class="layui-card-body ">
 					<form class="layui-form layui-col-space5" method="get" action="<?= RUN, '/member/member_listv' ?>">
-						<div class="layui-inline layui-show-xs-block" style="width: 250px">
+						<div class="layui-inline layui-show-xs-block">
 							<input type="text" name="youxiang" id="youxiang" value="<?php echo $youxiang ?>"
-								   placeholder="手机号或邮件或公司名或姓名" autocomplete="off" class="layui-input">
+								   placeholder="邮件" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-inline layui-show-xs-block">
+							<input type="text" name="shoujihao" id="shoujihao" value="<?php echo $shoujihao ?>"
+								   placeholder="手机号" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-inline layui-show-xs-block">
+							<input type="text" name="gongsiming" id="gongsiming" value="<?php echo $gongsiming ?>"
+								   placeholder="公司名" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-inline layui-show-xs-block">
+							<input type="text" name="xingming" id="xingming" value="<?php echo $xingming ?>"
+								   placeholder="姓名" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-inline layui-show-xs-block">
 							<button class="layui-btn" lay-submit="" lay-filter="sreach"><i

@@ -29,12 +29,20 @@
                     <form class="layui-form layui-col-space5" method="get" action="<?= RUN, '/goods/goods_list' ?>">
                         <div class="layui-inline layui-show-xs-block">
                             <input type="text" name="xingming" id="xingming" value="<?php echo $xingming ?>"
-                                   placeholder="农场主名称或电话或邮箱" autocomplete="off" class="layui-input">
+                                   placeholder="农场主名称" autocomplete="off" class="layui-input">
                         </div>
-                        <div class="layui-inline layui-show-xs-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
-                                        class="layui-icon">&#xe615;</i></button>
-                        </div>
+						<div class="layui-inline layui-show-xs-block">
+							<input type="text" name="youxiang" id="youxiang" value="<?php echo $youxiang ?>"
+								   placeholder="邮件" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-inline layui-show-xs-block">
+							<input type="text" name="dianhua" id="dianhua" value="<?php echo $dianhua ?>"
+								   placeholder="电话" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-inline layui-show-xs-block">
+							<button class="layui-btn" lay-submit="" lay-filter="sreach"><i
+										class="layui-icon">&#xe615;</i></button>
+						</div>
                     </form>
                 </div>
                 <div class="layui-card-body ">

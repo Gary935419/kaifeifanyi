@@ -119,8 +119,8 @@
 					</div>
 				<?php }else{ ?>
 					<div class="zi">
-						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Top&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
-						<a style="font-weight: bold" href="#">ORIGINS&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Home&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="#">Origins&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				<?php } ?>
 				<div class="search_list_top">

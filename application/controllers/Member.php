@@ -25,29 +25,41 @@ class Member extends CI_Controller
     public function member_list()
     {
         $youxiang = isset($_GET['youxiang']) ? $_GET['youxiang'] : '';
+		$shoujihao = isset($_GET['shoujihao']) ? $_GET['shoujihao'] : '';
+		$gongsiming = isset($_GET['gongsiming']) ? $_GET['gongsiming'] : '';
+		$xingming = isset($_GET['xingming']) ? $_GET['xingming'] : '';
         $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-        $allpage = $this->member->getmemberAllPage($youxiang);
+        $allpage = $this->member->getmemberAllPage($youxiang,$shoujihao,$gongsiming,$xingming);
         $page = $allpage > $page ? $page : $allpage;
         $data["pagehtml"] = $this->getpage($page, $allpage, $_GET);
         $data["page"] = $page;
         $data["allpage"] = $allpage;
-        $list = $this->member->getmemberAll($page,$youxiang);
+        $list = $this->member->getmemberAll($page,$youxiang,$shoujihao,$gongsiming,$xingming);
         $data["list"] = $list;
         $data["youxiang"] = $youxiang;
+		$data["shoujihao"] = $shoujihao;
+		$data["gongsiming"] = $gongsiming;
+		$data["xingming"] = $xingming;
         $this->display("member/member_list", $data);
     }
 	public function member_listv()
 	{
 		$youxiang = isset($_GET['youxiang']) ? $_GET['youxiang'] : '';
+		$shoujihao = isset($_GET['shoujihao']) ? $_GET['shoujihao'] : '';
+		$gongsiming = isset($_GET['gongsiming']) ? $_GET['gongsiming'] : '';
+		$xingming = isset($_GET['xingming']) ? $_GET['xingming'] : '';
 		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
-		$allpage = $this->member->getmemberAllPagev($youxiang);
+		$allpage = $this->member->getmemberAllPagev($youxiang,$shoujihao,$gongsiming,$xingming);
 		$page = $allpage > $page ? $page : $allpage;
 		$data["pagehtml"] = $this->getpage($page, $allpage, $_GET);
 		$data["page"] = $page;
 		$data["allpage"] = $allpage;
-		$list = $this->member->getmemberAllv($page,$youxiang);
+		$list = $this->member->getmemberAllv($page,$youxiang,$shoujihao,$gongsiming,$xingming);
 		$data["list"] = $list;
 		$data["youxiang"] = $youxiang;
+		$data["shoujihao"] = $shoujihao;
+		$data["gongsiming"] = $gongsiming;
+		$data["xingming"] = $xingming;
 		$this->display("member/member_listv", $data);
 	}
 

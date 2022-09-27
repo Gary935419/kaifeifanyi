@@ -117,9 +117,9 @@
 					</div>
 				<?php }else{ ?>
 					<div class="zi">
-						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Top&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
-						<a style="font-weight: bold" href="<?= RUN . '/webviews/searchex_xiaolist?stype=1' ?>">ROASTERS&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
-						<a style="font-weight: bold" href="#">ROASTERS Details&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Home&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/webviews/searchex_xiaolist?stype=1' ?>">Roasters&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="#">Roasters Details&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				<?php } ?>
 				<?php if (!empty($showflg)){ ?>

@@ -219,50 +219,85 @@ class Member_model extends CI_Model
 		return $number;
 	}
 	//获取会员总人数
-	public function getmemberAllPage($youxiang)
+	public function getmemberAllPage($youxiang,$shoujihao,$gongsiming,$xingming)
 	{
 		$sqlw = " where 1=1 and leixing = 1";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
 		}
-		$sql = "SELECT count(1) as number,concat(xing,ming) as xingming FROM `member` " . $sqlw;
-		$number = $this->db->query($sql)->row()->number;
-		return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
-	}
-	//获取会员总信息
-	public function getmemberAll($pg,$youxiang)
-	{
-		$sqlw = " where 1=1 and leixing = 1";
-		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
+		if (!empty($shoujihao)) {
+			$sqlw .= " and ( shoujihao like '%" . $shoujihao . "%' ) ";
 		}
-		$start = ($pg - 1) * 10;
-		$stop = 10;
-		$sql = "SELECT u.* FROM `member` u  " . $sqlw . " order by addtime desc LIMIT $start, $stop";
-		return $this->db->query($sql)->result_array();
-	}
-	//获取会员总人数
-	public function getmemberAllPagev($youxiang)
-	{
-		$sqlw = " where 1=1 and leixing = 2";
-		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
+		if (!empty($gongsiming)) {
+			$sqlw .= " and ( gsming like '%" . $gongsiming . "%' ) ";
+		}
+		if (!empty($xingming)) {
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
 		}
 		$sql = "SELECT count(1) as number FROM `member` " . $sqlw;
 		$number = $this->db->query($sql)->row()->number;
 		return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
 	}
 	//获取会员总信息
-	public function getmemberAllv($pg, $youxiang)
+	public function getmemberAll($pg,$youxiang,$shoujihao,$gongsiming,$xingming)
 	{
-		$sqlw = " where 1=1 and leixing = 2";
+		$sqlw = " where 1=1 and leixing = 1";
 		if (!empty($youxiang)) {
-			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' or shoujihao like '%" . $youxiang . "%' or gsming like '%" . $youxiang . "%' or xingming like '%" . $youxiang . "%' ) ";
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($shoujihao)) {
+			$sqlw .= " and ( shoujihao like '%" . $shoujihao . "%' ) ";
+		}
+		if (!empty($gongsiming)) {
+			$sqlw .= " and ( gsming like '%" . $gongsiming . "%' ) ";
+		}
+		if (!empty($xingming)) {
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
 		}
 		$start = ($pg - 1) * 10;
 		$stop = 10;
-		$sql = "SELECT u.* FROM `member` u  " . $sqlw . " order by addtime desc LIMIT $start, $stop";
-//        print_r($sql);die;
+		$sql = "SELECT * FROM `member` " . $sqlw . " order by addtime desc LIMIT $start, $stop";
+		return $this->db->query($sql)->result_array();
+	}
+	//获取会员总人数
+	public function getmemberAllPagev($youxiang,$shoujihao,$gongsiming,$xingming)
+	{
+		$sqlw = " where 1=1 and leixing = 2";
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($shoujihao)) {
+			$sqlw .= " and ( shoujihao like '%" . $shoujihao . "%' ) ";
+		}
+		if (!empty($gongsiming)) {
+			$sqlw .= " and ( gsming like '%" . $gongsiming . "%' ) ";
+		}
+		if (!empty($xingming)) {
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
+		}
+		$sql = "SELECT count(1) as number FROM `member` " . $sqlw;
+		$number = $this->db->query($sql)->row()->number;
+		return ceil($number / 10) == 0 ? 1 : ceil($number / 10);
+	}
+	//获取会员总信息
+	public function getmemberAllv($pg,$youxiang,$shoujihao,$gongsiming,$xingming)
+	{
+		$sqlw = " where 1=1 and leixing = 2";
+		if (!empty($youxiang)) {
+			$sqlw .= " and ( youxiang like '%" . $youxiang . "%' ) ";
+		}
+		if (!empty($shoujihao)) {
+			$sqlw .= " and ( shoujihao like '%" . $shoujihao . "%' ) ";
+		}
+		if (!empty($gongsiming)) {
+			$sqlw .= " and ( gsming like '%" . $gongsiming . "%' ) ";
+		}
+		if (!empty($xingming)) {
+			$sqlw .= " and ( xingming like '%" . $xingming . "%' ) ";
+		}
+		$start = ($pg - 1) * 10;
+		$stop = 10;
+		$sql = "SELECT * FROM `member` " . $sqlw . " order by addtime desc LIMIT $start, $stop";
 		return $this->db->query($sql)->result_array();
 	}
 

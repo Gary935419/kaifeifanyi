@@ -40,36 +40,44 @@ class Goods extends CI_Controller
     public function goods_list()
     {
         $xingming = isset($_GET['xingming']) ? $_GET['xingming'] : '';
+		$youxiang = isset($_GET['youxiang']) ? $_GET['youxiang'] : '';
+		$dianhua = isset($_GET['dianhua']) ? $_GET['dianhua'] : '';
         $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-        $allpage = $this->goods->getgoodsAllPage($xingming);
+        $allpage = $this->goods->getgoodsAllPage($xingming,$youxiang,$dianhua);
         $page = $allpage > $page ? $page : $allpage;
         $data["pagehtml"] = $this->getpage($page, $allpage, $_GET);
         $data["page"] = $page;
         $data["allpage"] = $allpage;
-        $list = $this->goods->getgoodsAllNew($page, $xingming);
+        $list = $this->goods->getgoodsAllNew($page, $xingming,$youxiang,$dianhua);
         foreach ($list as $k=>$v){
 			$list_info = $this->goods->getgoodsByIdnongchangzhu($v['id']);
 			$list[$k]['idf'] = $list_info['id'];
 		}
         $data["xingming"] = $xingming;
+		$data["youxiang"] = $youxiang;
+		$data["dianhua"] = $dianhua;
         $data["list"] = $list;
         $this->display("goods/goods_list_zi", $data);
     }
 	public function goods_list1()
 	{
 		$mingcheng = isset($_GET['mingcheng']) ? $_GET['mingcheng'] : '';
+		$youxiang = isset($_GET['youxiang']) ? $_GET['youxiang'] : '';
+		$dianhua = isset($_GET['dianhua']) ? $_GET['dianhua'] : '';
 		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
-		$allpage = $this->goods->getgoodsAllPage1($mingcheng);
+		$allpage = $this->goods->getgoodsAllPage1($mingcheng,$youxiang,$dianhua);
 		$page = $allpage > $page ? $page : $allpage;
 		$data["pagehtml"] = $this->getpage($page, $allpage, $_GET);
 		$data["page"] = $page;
 		$data["allpage"] = $allpage;
-		$list = $this->goods->getgoodsAllNew1($page, $mingcheng);
+		$list = $this->goods->getgoodsAllNew1($page,$mingcheng,$youxiang,$dianhua);
 		foreach ($list as $k=>$v){
 			$list_info = $this->goods->getgoodsByIdkafeidian($v['id']);
 			$list[$k]['idf'] = $list_info['id'];
 		}
 		$data["mingcheng"] = $mingcheng;
+		$data["youxiang"] = $youxiang;
+		$data["dianhua"] = $dianhua;
 		$data["list"] = $list;
 		$this->display("goods/goods_list_zi1", $data);
 	}

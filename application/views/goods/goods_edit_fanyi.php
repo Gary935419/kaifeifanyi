@@ -75,7 +75,7 @@
 			</div>
 			<div class="layui-form-item">
 				<label for="L_pass" class="layui-form-label" style="width: 30%;">
-					<span class="x-red">*</span>源野·一个关于咖啡生豆源产地与咖啡生豆消费市场的小众搜索引擎
+					<span class="x-red">*</span>源野·一个关于咖啡生豆原产地与咖啡生豆消费市场的小众搜索引擎
 				</label>
 				<div class="layui-input-inline" style="width: 300px;">
 					<input type="text" id="text7" name="text7" lay-verify="text7"

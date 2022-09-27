@@ -116,8 +116,8 @@
 					</div>
 				<?php }else{ ?>
 					<div class="zi">
-						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Top&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
-						<a style="font-weight: bold" href="#">ROASTERS&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="<?= RUN . '/' ?>">Home&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+						<a style="font-weight: bold" href="#">Roasters&nbsp;&nbsp;&nbsp;</a>
 					</div>
 				<?php } ?>
 				<!--pc-->
