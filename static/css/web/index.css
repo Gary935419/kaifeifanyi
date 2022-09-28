@@ -231,6 +231,7 @@
 	}
 	.searchex_form {
 		width: 100%;
+		margin-bottom: 5px;
 	}
 	.searchex_form input {
 		padding: 0 15px;
