@@ -29,7 +29,7 @@
                     <form class="layui-form layui-col-space5" method="get" action="<?= RUN, '/goods/goods_list' ?>">
                         <div class="layui-inline layui-show-xs-block">
                             <input type="text" name="xingming" id="xingming" value="<?php echo $xingming ?>"
-                                   placeholder="农场主名称" autocomplete="off" class="layui-input">
+                                   placeholder="名称" autocomplete="off" class="layui-input">
                         </div>
 						<div class="layui-inline layui-show-xs-block">
 							<input type="text" name="youxiang" id="youxiang" value="<?php echo $youxiang ?>"
@@ -50,9 +50,11 @@
                         <thead>
                         <tr>
                             <th>语言</th>
-                            <th>农场主名称</th>
-							<th>显示状态</th>
-                            <th>农场主头像</th>
+                            <th>名称</th>
+							<th>电话</th>
+							<th>邮箱</th>
+							<th>状态</th>
+                            <th>头像</th>
                             <th>添加时间</th>
 							<th>编辑时间</th>
                             <th>操作</th>
@@ -69,6 +71,8 @@
 										<td style="color: #ff820b;">数据错误</td>
 									<?php } ?>
                                     <td><?= $once['xingming'] ?></td>
+									<td><?= $once['dianhua'] ?></td>
+									<td><?= $once['youxiang'] ?></td>
 									<?php if ($once['zhuangtai']==1){ ?>
 									<td style="color: green;">显示中</td>
 									<?php }elseif ($once['zhuangtai']==2){ ?>
