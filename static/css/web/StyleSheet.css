@@ -50,37 +50,7 @@ a{blr:expression(this.onFocus=this.blur()); outline:none;}
 	clear:both;/*清除浮动*/
 	visibility:hidden;/*让生成的内容不可见*/
 }
-/*针对1920的宽屏*/
-@font-face
-{
-	font-family: SourceHanSansCN-Bold;
-	src: url(../../fonts/SourceHanSansCN-Bold.otf);
-}
-@font-face
-{
-	font-family: SourceHanSansCN-Heavy;
-	src: url(../../fonts/SourceHanSansCN-Heavy.otf);
-}
-@font-face
-{
-	font-family: SourceHanSansCN-Light;
-	src: url(../../fonts/SourceHanSansCN-Light.otf);
-}
-@font-face
-{
-	font-family: SourceHanSansCN-Medium;
-	src: url(../../fonts/SourceHanSansCN-Medium.otf);
-}
-@font-face
-{
-	font-family: SourceHanSansCN-Normal;
-	src: url(../../fonts/SourceHanSansCN-Normal.otf);
-}
-@font-face
-{
-	font-family: SourceHanSansCN-Regular;
-	src: url(../../fonts/SourceHanSansCN-Regular.otf);
-}
+
 textarea {
 	font-family: 'Microsoft YaHei, Microsoft YaHei-Regular';
 	outline: none;
